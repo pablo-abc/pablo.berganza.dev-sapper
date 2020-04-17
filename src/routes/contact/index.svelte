@@ -9,6 +9,7 @@
 <script>
   import Icon from 'fa-svelte';
   import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+  import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
   import IconLink from '../../components/IconLink.svelte';
   export let contact;
 </script>
@@ -18,7 +19,7 @@
     <h1>{contact.metadata.contactme}</h1>
   </header>
   <section>
-    <p>{@html contact.html}</p>
+    {@html contact.html}
     <dl>
       <dt>
         {contact.metadata.socialmedia}
@@ -43,6 +44,41 @@
           <Icon icon={faTwitter} /> Twitter
         </IconLink>
       </dd>
+      <dt>
+        {contact.metadata.email}
+      </dt>
+      <dd>
+        <a href="mailto:pablo@berganza.dev">
+          <Icon icon={faEnvelope} />
+          pablo@berganza.dev
+        </a>
+      </dd>
     </dl>
   </section>
 </section>
+
+<style>
+  section {
+      margin: 0 10px;
+      max-width: 720px;
+      color: #555;
+      font-weight: 550;
+
+  }
+
+  @media only screen and (min-width: 820px) {
+      section {
+          margin: 0 auto;
+      }
+  }
+
+  dl {
+      line-height: 1.5;
+  }
+
+  dt {
+      color: var(--color-primary-0);
+      font-weight: bold;
+      margin-top: 8px;
+  }
+</style>
