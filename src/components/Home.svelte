@@ -10,7 +10,7 @@
 <section class=main>
   <section class=main-info>
     <div id=profile-box>
-      <img id=profile-pic src=/img/profile-pic.jpeg alt="Profile picture">
+      <img id=profile-pic src=img/profile-pic.jpeg alt="Profile picture">
       <h3 id=profile-bubble>
         {index.metadata.welcome}
       </h3>

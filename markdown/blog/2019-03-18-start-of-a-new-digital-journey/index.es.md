@@ -2,7 +2,7 @@
 title: Inicio de un nuevo viaje digital
 introduction: Cómo me compliqué la vida al intentar crear mi sitio web desde cero
 created: '2019-03-18'
-banner: /img/blog-pics/2019-03-18.jpg
+banner: img/blog-pics/2019-03-18.jpg
 bannertitle: Bruselas, Bélgica
 tags:
     - clojure

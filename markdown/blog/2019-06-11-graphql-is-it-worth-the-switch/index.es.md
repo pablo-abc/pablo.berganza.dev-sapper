@@ -2,7 +2,7 @@
 title: 'GraphQL: ¿Vale la pena el cambio?'
 introduction: Una agradable alternativa a APIs REST con una increíble experiencia de desarrollo
 created: '2019-06-11'
-banner: /img/blog-pics/2019-06-11.jpg
+banner: img/blog-pics/2019-06-11.jpg
 bannertitle: Peloponeso, Grecia
 tags:
     - graphql

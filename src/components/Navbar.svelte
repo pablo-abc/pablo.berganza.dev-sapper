@@ -6,7 +6,7 @@
 
 <nav>
   <div class=left-nav>
-    <a id=logo href="/">
+    <a id=logo href="">
       <span>Pablo</span>
       <span>Berganza</span>
     </a>

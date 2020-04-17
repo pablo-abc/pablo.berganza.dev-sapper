@@ -2,7 +2,7 @@
 title: 'GraphQL: Is it worth the switch?'
 introduction: A nice alternative to REST APIs with a fantastic developer experience
 created: '2019-06-11'
-banner: /img/blog-pics/2019-06-11.jpg
+banner: img/blog-pics/2019-06-11.jpg
 bannertitle: Peloponnese, Greece
 tags:
     - graphql
