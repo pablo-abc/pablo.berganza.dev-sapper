@@ -1,4 +1,6 @@
-import blogs from './_blogs.js';
+import getBlogs from './_blogs.js';
+
+const blogs = getBlogs('en');
 
 export function get(req, res, next) {
   // the `slug` parameter is available because

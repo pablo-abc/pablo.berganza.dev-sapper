@@ -1,5 +1,6 @@
-import posts from './_posts.js';
-import blogs from './_blogs.js';
+import getBlogs from './_blogs.js';
+
+const blogs = getBlogs('en');
 
 const contents = JSON.stringify(blogs.map(blog => {
   return {

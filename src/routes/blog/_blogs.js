@@ -16,26 +16,28 @@ renderer.code = (source, lang) => {
   return `<pre class="${lang} hljs"><code>${value}</code></pre>`
 }
 
-const fileNames = glob.sync(path.resolve('./markdown/blog/**/*.en.md'));
-const mds = fileNames.map(fileName => ({
-  ...fm(fs.readFileSync(fileName).toString()),
-  path: fileName,
-}));
-const blogs = mds.map(md => ({
-  ...md,
-  metadata: md.attributes,
-  html: marked(md.body, { renderer })
-}));
+export default function getBlogs(lang = 'en') {
+  const fileNames = glob.sync(path.resolve(`./markdown/blog/**/*.${lang}.md`));
+  const mds = fileNames.map(fileName => ({
+    ...fm(fs.readFileSync(fileName).toString()),
+    path: fileName,
+  }));
+  const blogs = mds.map(md => ({
+    ...md,
+    metadata: md.attributes,
+    html: marked(md.body, { renderer })
+  }));
 
-export default blogs.map(blog => {
+  return blogs.map(blog => {
 
-  const blogDir = path.dirname(blog.path).split(path.sep);
-  const slug = blogDir[blogDir.length - 1];
-  return {
-    ...blog,
-    slug,
-    ttr: Math.ceil(readingTime(blog.html, {wordsPerMinute: 200}).minutes),
-  };
-}).sort((a, b) => {
-  return (new Date(b.metadata.created)).getTime() - (new Date(a.metadata.created)).getTime();
-});
+    const blogDir = path.dirname(blog.path).split(path.sep);
+    const slug = blogDir[blogDir.length - 1];
+    return {
+      ...blog,
+      slug,
+      ttr: Math.ceil(readingTime(blog.html, {wordsPerMinute: 200}).minutes),
+    };
+  }).sort((a, b) => {
+    return (new Date(b.metadata.created)).getTime() - (new Date(a.metadata.created)).getTime();
+  });
+}
