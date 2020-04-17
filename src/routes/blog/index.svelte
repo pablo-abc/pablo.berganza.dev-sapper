@@ -16,7 +16,7 @@
   <title>Blog | Pablo Berganza</title>
 </svelte:head>
 
-<section class=blog-blogs>
+<section class=blog-posts>
   <header class=title>
     <h1>Blog</h1>
   </header>
@@ -42,3 +42,60 @@
     {/each}
   </section>
 </section>
+
+<style>
+  h1 {
+      color: var(--color-primary-0);
+      text-align: center;
+  }
+
+  .blog-list {
+      display: flex;
+      flex-direction: column;
+      max-width: 720px;
+      margin: 0 10px;
+  }
+
+  @media only screen and (min-width: 740px) {
+      .blog-list {
+          margin: 0 auto;
+      }
+  }
+
+  .blog-item {
+      text-decoration: none;
+      transition: background-color 0.1s;
+      color: var(--color-primary-4);
+      margin: 0;
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 5px;
+  }
+
+  .ttr-created {
+      display: flex;
+      color: #555;
+      font-style: italic;
+      margin-top: 0px;
+      margin-bottom: 8px;
+  }
+
+  .ttr {
+      margin-right: 24px;
+  }
+
+  .introduction {
+      margin: 0px;
+      color: #333;
+  }
+
+  h3 {
+      color: var(--color-primary-0);
+      margin: 0;
+  }
+
+  .blog-item:hover {
+      background-color: var(--color-secondary-2-1);
+      text-decoration: none;
+  }
+</style>

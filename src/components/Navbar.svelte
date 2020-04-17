@@ -35,3 +35,65 @@
     </IconLink>
   </div>
 </nav>
+
+<style>
+  nav div {
+      display: inline;
+  }
+
+  .left-nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+  }
+
+  @media only screen and (min-width: 540px) {
+      .left-nav {
+          flex-direction: row;
+          align-items: center;
+      }
+  }
+
+  nav.right-nav {
+      display: flex;
+      align-items: center;
+  }
+
+  nav.right-nav a {
+      margin: 5px;
+  }
+
+  #logo {
+      text-decoration: none;
+      transition: color 0.1s;
+      color: var(--color-primary-0);
+      font-weight: bold;
+      font-size: 1.5em;
+      display: flex;
+      flex-direction: column;
+  }
+
+  #logo:hover {
+      color: var(--color-primary-1);
+  }
+
+  #logo span {
+      margin-right: 8px;
+  }
+
+  @media only screen and (min-width: 362px) {
+      #logo {
+          flex-direction: row;
+      }
+  }
+
+  nav {
+      max-width: 960px;
+      padding: 0 20px;
+      margin: 8px auto;
+      display: flex;
+      align-items: center;
+      line-height: 1.3;
+      justify-content: space-between;
+  }
+</style>

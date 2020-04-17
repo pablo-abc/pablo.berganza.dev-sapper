@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Sapper project template</title>
+  <title>Sapper project template</title>
 </svelte:head>
 
 <section class=main>
@@ -31,10 +31,125 @@
     <h2>{index.metadata.myabilities}</h2>
     <section class=box-abilities>
       {#each abilities as ability, index}
-      <section class="ability color-{(index + 1) % 2 || 2}">
-        <img src={ability[0]} alt={ability[1]}>
-      </section>
+        <section class="ability color-{(index + 1) % 2 || 2}">
+          <img src={ability[0]} alt={ability[1]}>
+        </section>
       {/each}
     </section>
   </section>
 </section>
+
+<style>
+  .main-info {
+      width: 100%;
+      background-color: var(--background-color);
+      background-repeat: no-repeat;
+      background-size: 100%;
+  }
+
+  #profile-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 0;
+
+  }
+
+  #profile-pic {
+      object-fit: cover;
+      width: 216px;
+      height: 216px;
+      border-radius: 50%;
+      border: 4px solid var(--color-primary-0);
+  }
+
+  #profile-bubble {
+      color: white;
+      background-color: var(--color-primary-0);
+      margin: 24px 20px;
+      padding: 24px;
+      padding-top: 28px;
+      border-radius: 50px;
+      line-height: 1;
+      text-align: center;
+  }
+
+  .abilities h2, .about-me h2 {
+      color: var(--color-primary-4);
+      margin-bottom: 0;
+  }
+
+ .abilities :global(p), .about-me :global(p) {
+      text-align: center;
+      color: #333;
+      margin: 0 10px;
+      max-width: 720px;
+  }
+  .abilities, .about-me {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+  }
+
+  .about-me {
+      background-color: var(--color-primary-1);
+      padding-bottom: 48px;
+  }
+
+  .box-abilities {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+  }
+
+  .color-1 {
+      background-color: var(--color-secondary-2-1);
+  }
+
+  .color-2 {
+      background-color: var(--color-primary-1);
+  }
+
+  .color-3 {
+      background-color: var(--color-primary-1);
+  }
+
+  .ability {
+      width: 80vw;
+      height: 80vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10vw 10vw 10vw;
+      border-radius: 10px;
+  }
+
+  .ability img {
+      width: 80%;
+  }
+
+  @media only screen and (min-width: 600px) {
+      #profile-box {
+          flex-direction: row;
+          justify-content: center;
+      }
+  }
+
+  @media only screen and (min-width: 600px) {
+      .box-abilities {
+          flex-direction: row;
+          justify-content: space-around;
+          flex-wrap: wrap;
+          max-width: 960px;
+          margin: 0 auto;
+      }
+
+      .ability {
+          max-width: 250px;
+          max-height: 250px;
+          margin: 24px 16px;
+      }
+  }
+</style>

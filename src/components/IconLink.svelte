@@ -13,3 +13,19 @@
   >
   <slot></slot>
 </a>
+
+<style>
+  a {
+      font-size: 1.2rem;
+  }
+
+  .sm {
+      display: none;
+  }
+
+  @media only screen and (min-width: 330px) {
+      .sm {
+          display: inline;
+      }
+  }
+</style>

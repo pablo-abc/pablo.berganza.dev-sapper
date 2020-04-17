@@ -6,10 +6,7 @@ import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
-import { sass } from 'svelte-preprocess-sass';
-import scss from 'rollup-plugin-scss';
 import markdown from '@jackfranklin/rollup-plugin-markdown';
-import glob from 'rollup-plugin-glob';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -22,7 +19,6 @@ export default {
     input: config.client.input(),
     output: config.client.output(),
     plugins: [
-      scss({ output: 'static/site.css' }),
       replace({
 	'process.browser': true,
 	'process.env.NODE_ENV': JSON.stringify(mode)
@@ -31,9 +27,6 @@ export default {
 	dev,
 	hydratable: true,
 	emitCss: true,
-        preprocess: {
-          style: sass({}, { name: 'scss' }),
-        },
       }),
       resolve({
 	browser: true,
@@ -71,8 +64,6 @@ export default {
     output: config.server.output(),
     plugins: [
       markdown(),
-      glob(),
-      scss({ output: 'static/site.css' }),
       replace({
 	'process.browser': false,
 	'process.env.NODE_ENV': JSON.stringify(mode)
@@ -80,9 +71,6 @@ export default {
       svelte({
 	generate: 'ssr',
 	dev,
-        preprocess: {
-          style: sass({}, { name: 'scss' }),
-        },
       }),
       resolve({
 	dedupe: ['svelte']

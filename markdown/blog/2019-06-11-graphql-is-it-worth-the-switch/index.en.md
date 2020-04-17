@@ -85,7 +85,7 @@ As said before, GraphQL is described as a query language for APIs. Unlike REST, 
 
 There are two types of requests you can make to a GraphQL API: queries or mutations. A query request may look like this:
 
-```javascript
+```graphql
 {
   post(id:"1") {
     id
@@ -102,7 +102,7 @@ This means there should be a schema of the type "query" with the name "post" def
 
 A GraphQL mutation may look like this:
 
-```javascript
+```graphql
 mutation {
   createAccount(
     email:"pablo@berganza.dev"
