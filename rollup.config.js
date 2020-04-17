@@ -8,6 +8,7 @@ import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import { sass } from 'svelte-preprocess-sass';
 import scss from 'rollup-plugin-scss';
+import markdown from '@jackfranklin/rollup-plugin-markdown';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -68,6 +69,7 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
+      markdown(),
       scss({ output: 'static/site.css' }),
       replace({
 	'process.browser': false,
