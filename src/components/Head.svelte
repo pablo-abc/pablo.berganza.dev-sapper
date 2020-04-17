@@ -6,6 +6,7 @@
   export let img;
   export let isArticle = false;
   export let created;
+  const host = process.browser ? JSON.parse('process.env.HOST') : 'process.env.HOST';
 </script>
 
 <svelte:head>
@@ -14,8 +15,8 @@
   <meta itemdrop=name content={title}>
   <meta itemdrop=description content={description}>
   {#if img}
-    <meta name="twitter:image:src" content={img}>
-    <meta property="og:image" content={img}>
+    <meta name="twitter:image:src" content={host + img}>
+    <meta property="og:image" content={host + img}>
   {/if}
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content={title}>
