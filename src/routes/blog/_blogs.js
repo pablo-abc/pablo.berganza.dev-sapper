@@ -9,6 +9,6 @@ export default blogs.default.map(blog => {
   return {
     ...blog,
     slug,
-    ttr: Math.ceil(readingTime(blog.html).minutes),
+    ttr: Math.ceil(readingTime(blog.html, {wordsPerMinute: 200}).minutes),
   };
 });

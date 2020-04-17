@@ -74,13 +74,13 @@ header.title {
     }
 }
 
-    a {
-        text-decoration: none;
-        color: $color-secondary-2-0;
-        transition: color 0.1s;
+a {
+    text-decoration: none;
+    color: $color-secondary-2-0;
+    transition: color 0.1s;
 
-        &:hover {
-            text-decoration: underline;
-            color: $color-secondary-2-2;
-        }
+    &:hover {
+        text-decoration: underline;
+        color: $color-secondary-2-2;
     }
+}
