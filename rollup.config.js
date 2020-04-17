@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
@@ -11,6 +12,7 @@ import markdown from '@jackfranklin/rollup-plugin-markdown';
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+const host = process.env.HOST;
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
 
@@ -21,7 +23,8 @@ export default {
     plugins: [
       replace({
 	'process.browser': true,
-	'process.env.NODE_ENV': JSON.stringify(mode)
+	'process.env.NODE_ENV': JSON.stringify(mode),
+        'process.env.HOST': JSON.stringify(host),
       }),
       svelte({
 	dev,
@@ -66,7 +69,8 @@ export default {
       markdown(),
       replace({
 	'process.browser': false,
-	'process.env.NODE_ENV': JSON.stringify(mode)
+	'process.env.NODE_ENV': JSON.stringify(mode),
+        'process.env.HOST': JSON.stringify(host),
       }),
       svelte({
 	generate: 'ssr',

@@ -1,5 +1,6 @@
 <script>
   import Icon from 'fa-svelte';
+  import ShareButtons from '../ShareButtons.svelte';
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
   export let blog;
 </script>
@@ -34,6 +35,9 @@
   <section class='content'>
     {@html blog.html}
   </section>
+  <footer>
+    <ShareButtons {blog} />
+  </footer>
 </article>
 
 <style>
@@ -119,33 +123,6 @@
       white-space: -moz-pre;  /* Mozilla, since 1999 */
       white-space: -pre;      /* Opera 4-6 */
       white-space: -o-pre;    /* Opera 7 */
-  }
-
-  ul.share-buttons {
-      max-width: 720px;
-      margin: 0 auto;
-      color: #444;
-      font-weight: 550;
-      list-style: none;
-      padding: 0;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-  }
-
-  ul.share-buttons li {
-      margin: 10px;
-  }
-
-  ul.share-buttons .sr-only {
-      position: absolute;
-      clip: rect(1px 1px 1px 1px);
-      clip: rect(1px, 1px, 1px, 1px);
-      padding: 0;
-      border: 0;
-      height: 1px;
-      width: 1px;
-      overflow: hidden;
   }
 
   .banner {

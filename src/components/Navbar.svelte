@@ -54,12 +54,12 @@
       }
   }
 
-  nav.right-nav {
+  .right-nav {
       display: flex;
       align-items: center;
   }
 
-  nav.right-nav a {
+  .right-nav :global(a) {
       margin: 5px;
   }
 

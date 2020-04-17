@@ -11,13 +11,16 @@
   import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
   import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
   import IconLink from '../../components/IconLink.svelte';
+  import Head from '../../components/Head.svelte';
+  const host = process.browser ? JSON.parse('process.env.HOST') : 'process.env.HOST';
   export let contact;
 </script>
 
-<svelte:head>
-  <title>Contact Me | Pablo Berganza</title>
-  <meta name="description" content="Personal site and blog for Pablo Berganza">
-</svelte:head>
+<Head
+  title="Contact Me | Pablo Berganza"
+  description="Personal site and blog for Pablo Berganza"
+  url={host + '/contact'}
+  />
 
 <section class=contact>
   <header class=title>
