@@ -1,16 +1,12 @@
 <script>
+  import ProfileBox from './ProfileBox.svelte';
   import AbilityBoxes from './AbilityBoxes.svelte';
   export let index;
 </script>
 
 <section class=main>
   <section class=main-info>
-    <div id=profile-box>
-      <img id=profile-pic src=img/profile-pic.jpeg alt="Profile picture">
-      <h3 id=profile-bubble>
-        {index.metadata.welcome}
-      </h3>
-    </div>
+    <ProfileBox welcome={index.metadata.welcome} />
   </section>
   <section class=about-me>
     <h2>{index.metadata.aboutme}</h2>
@@ -28,33 +24,6 @@
       background-color: var(--background-color);
       background-repeat: no-repeat;
       background-size: 100%;
-  }
-
-  #profile-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 24px 0;
-
-  }
-
-  #profile-pic {
-      object-fit: cover;
-      width: 216px;
-      height: 216px;
-      border-radius: 50%;
-      border: 4px solid var(--color-primary-0);
-  }
-
-  #profile-bubble {
-      color: white;
-      background-color: var(--color-primary-0);
-      margin: 24px 20px;
-      padding: 24px;
-      padding-top: 28px;
-      border-radius: 50px;
-      line-height: 1;
-      text-align: center;
   }
 
   .abilities h2, .about-me h2 {
@@ -79,12 +48,5 @@
   .about-me {
       background-color: var(--color-primary-1);
       padding-bottom: 48px;
-  }
-
-  @media only screen and (min-width: 600px) {
-      #profile-box {
-          flex-direction: row;
-          justify-content: center;
-      }
   }
 </style>
