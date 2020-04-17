@@ -15,8 +15,6 @@
   import Head from '../../components/Head.svelte';
   import Blog from '../../components/blogs/Blog.svelte';
   export let blog;
-  const host = process.browser ? JSON.parse('process.env.HOST') : 'process.env.HOST';
-  const url = `${host}/blog/${blog.slug}`;
 </script>
 
 <Head
@@ -25,7 +23,7 @@
   img={blog.metadata.banner}
   isArticle
   created={blog.metadata.created}
-  {url}
+  url="/blog/{blog.slug}"
   />
 
 <Blog {blog} />

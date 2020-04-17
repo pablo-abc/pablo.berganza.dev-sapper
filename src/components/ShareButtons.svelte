@@ -1,8 +1,8 @@
 <script>
+  import { host } from '../../site.config.js';
   import Icon from 'fa-svelte';
   import ShareButton from './ShareButton.svelte';
   import { faRedditSquare, faLinkedin, faTwitterSquare, faFacebookSquare, faGetPocket } from '@fortawesome/free-brands-svg-icons';
-  const host = process.browser ? JSON.parse('process.env.HOST') : 'process.env.HOST';
   export let blog
   export let lang = 'en';
   const encoded = encodeURI(host + '/' + blog.slug);

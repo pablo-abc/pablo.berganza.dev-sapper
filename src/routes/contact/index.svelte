@@ -12,14 +12,13 @@
   import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
   import IconLink from '../../components/IconLink.svelte';
   import Head from '../../components/Head.svelte';
-  const host = process.browser ? JSON.parse('process.env.HOST') : 'process.env.HOST';
   export let contact;
 </script>
 
 <Head
   title="Contact Me | Pablo Berganza"
   description="Personal site and blog for Pablo Berganza"
-  url={host + '/contact'}
+  url="/contact"
   />
 
 <section class=contact>

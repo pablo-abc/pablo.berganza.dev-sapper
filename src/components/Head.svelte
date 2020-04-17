@@ -1,4 +1,5 @@
 <script>
+  import { host } from '../../site.config.js';
   export let title;
   export let description;
   export let lang = 'en';
@@ -6,7 +7,6 @@
   export let img;
   export let isArticle = false;
   export let created;
-  const host = process.browser ? JSON.parse('process.env.HOST') : 'process.env.HOST';
 </script>
 
 <svelte:head>
@@ -15,8 +15,8 @@
   <meta itemdrop=name content={title}>
   <meta itemdrop=description content={description}>
   {#if img}
-    <meta name="twitter:image:src" content={host + img}>
-    <meta property="og:image" content={host + img}>
+    <meta name="twitter:image:src" content={`${host}/${img}`}>
+    <meta property="og:image" content={`${host}/${img}`}>
   {/if}
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content={title}>
@@ -24,7 +24,7 @@
   <meta name="twitter:site" content="Pablo_ABC">
   <meta name="twitter:creator" content="Pablo_ABC">
   <meta property="og:title" content={title}>
-  <meta property="og:url" content={url}>
+  <meta property="og:url" content={`${host}${url}`}>
   <meta property="og:site_name" content="Pablo Berganza">
   <meta property="og:description" content={description}>
   <meta property="og:locale" content={lang}>
