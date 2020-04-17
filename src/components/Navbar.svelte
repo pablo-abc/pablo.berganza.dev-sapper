@@ -11,11 +11,11 @@
       <span>Berganza</span>
     </a>
     <div class=nav-items>
-      <a id=blog-nav class=nav-item href="/blog/">
+      <a id=blog-nav class=nav-item href="blog">
         Blog
       </a>
       |
-      <a id=contact-nav class=nav-item href="/contact">
+      <a id=contact-nav class=nav-item href="contact">
         Contact Me
       </a>
     </div>
