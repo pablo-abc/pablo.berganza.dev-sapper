@@ -1,13 +1,6 @@
 <script>
+  import AbilityBoxes from './AbilityBoxes.svelte';
   export let index;
-  let abilities = [
-    ['https://cdn.svgporn.com/logos/javascript.svg', 'JavaScript'],
-    ['https://cdn.svgporn.com/logos/typescript-icon.svg', 'TypeScript'],
-    ['https://cdn.svgporn.com/logos/clojure.svg', 'Clojure'],
-    ['/img/cljs-white.svg', 'ClojureScript'],
-    ['https://cdn.svgporn.com/logos/python.svg', 'Python'],
-    ['https://cdn.svgporn.com/logos/docker.svg', 'Docker'],
-  ];
 </script>
 
 <svelte:head>
@@ -29,13 +22,7 @@
   </section>
   <section class=abilities>
     <h2>{index.metadata.myabilities}</h2>
-    <section class=box-abilities>
-      {#each abilities as ability, index}
-        <section class="ability color-{(index + 1) % 2 || 2}">
-          <img src={ability[0]} alt={ability[1]}>
-        </section>
-      {/each}
-    </section>
+    <AbilityBoxes />
   </section>
 </section>
 
@@ -98,58 +85,10 @@
       padding-bottom: 48px;
   }
 
-  .box-abilities {
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-  }
-
-  .color-1 {
-      background-color: var(--color-secondary-2-1);
-  }
-
-  .color-2 {
-      background-color: var(--color-primary-1);
-  }
-
-  .color-3 {
-      background-color: var(--color-primary-1);
-  }
-
-  .ability {
-      width: 80vw;
-      height: 80vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 10vw 10vw 10vw;
-      border-radius: 10px;
-  }
-
-  .ability img {
-      width: 80%;
-  }
-
   @media only screen and (min-width: 600px) {
       #profile-box {
           flex-direction: row;
           justify-content: center;
-      }
-  }
-
-  @media only screen and (min-width: 600px) {
-      .box-abilities {
-          flex-direction: row;
-          justify-content: space-around;
-          flex-wrap: wrap;
-          max-width: 960px;
-          margin: 0 auto;
-      }
-
-      .ability {
-          max-width: 250px;
-          max-height: 250px;
-          margin: 24px 16px;
       }
   }
 </style>
