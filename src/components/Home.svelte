@@ -3,10 +3,6 @@
   export let index;
 </script>
 
-<svelte:head>
-  <title>Sapper project template</title>
-</svelte:head>
-
 <section class=main>
   <section class=main-info>
     <div id=profile-box>
