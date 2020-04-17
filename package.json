@@ -2,6 +2,16 @@
   "name": "pablo.berganza.dev",
   "description": "Personal blog",
   "version": "0.0.1",
+  "license": "GPL-3.0",
+  "author": "Pablo Berganza <pablo@berganza.dev>",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pablo-abc/pablo.berganza.dev-sapper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pablo-abc/pablo.berganza.dev-sapper/issues"
+  },
+  "homepage": "https://github.com/pablo-abc/pablo.berganza.dev-sapper#readme",
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
