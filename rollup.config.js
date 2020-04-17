@@ -9,6 +9,7 @@ import pkg from './package.json';
 import { sass } from 'svelte-preprocess-sass';
 import scss from 'rollup-plugin-scss';
 import markdown from '@jackfranklin/rollup-plugin-markdown';
+import glob from 'rollup-plugin-glob';
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -70,6 +71,7 @@ export default {
     output: config.server.output(),
     plugins: [
       markdown(),
+      glob(),
       scss({ output: 'static/site.css' }),
       replace({
 	'process.browser': false,

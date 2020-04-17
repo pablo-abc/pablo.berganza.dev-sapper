@@ -1,11 +1,11 @@
 <script>
-	import Nav from '../components/Nav.svelte';
-
-	export let segment;
+  import Navbar from '../components/Navbar.svelte';
 </script>
 
-<Nav {segment}/>
+<header id=nav-menu>
+  <Navbar />
+</header>
 
-<main>
-	<slot></slot>
+<main id=page>
+  <slot></slot>
 </main>

@@ -7,12 +7,13 @@
 </script>
 
 <script>
+  import Navbar from '../components/Navbar.svelte';
   import Home from '../components/Home.svelte';
   export let index;
 </script>
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Home | Pablo Berganza</title>
 </svelte:head>
 
 <Home {index} />
