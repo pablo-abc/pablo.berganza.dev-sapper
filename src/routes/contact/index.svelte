@@ -14,6 +14,11 @@
   export let contact;
 </script>
 
+<svelte:head>
+  <title>Contact Me | Pablo Berganza</title>
+  <meta name="description" content="Personal site and blog for Pablo Berganza">
+</svelte:head>
+
 <section class=contact>
   <header class=title>
     <h1>{contact.metadata.contactme}</h1>

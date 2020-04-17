@@ -9,12 +9,14 @@
 </script>
 
 <script>
+  import Head from '../../components/Head.svelte';
   export let blogs;
 </script>
 
-<svelte:head>
-  <title>Blog | Pablo Berganza</title>
-</svelte:head>
+<Head
+  title="Blog | Pablo Berganza"
+  description="Personal site and blog for Pablo Berganza"
+  />
 
 <section class=blog-posts>
   <header class=title>

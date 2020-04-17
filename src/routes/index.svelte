@@ -9,11 +9,13 @@
 <script>
   import Navbar from '../components/Navbar.svelte';
   import Home from '../components/Home.svelte';
+  import Head from '../components/Head.svelte';
   export let index;
 </script>
 
-<svelte:head>
-	<title>Home | Pablo Berganza</title>
-</svelte:head>
+<Head
+  title="Home | Pablo Berganza"
+  description="Personal site and blog for Pablo Berganza"
+  />
 
 <Home {index} />

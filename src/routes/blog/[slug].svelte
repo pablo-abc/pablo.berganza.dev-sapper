@@ -15,12 +15,20 @@
 </script>
 
 <script>
+  import Head from '../../components/Head.svelte';
   export let blog;
 </script>
 
 <svelte:head>
   <title>{blog.metadata.title} | Pablo Berganza</title>
 </svelte:head>
+<Head
+  title={blog.metadata.title + ' | Pablo Berganza'}
+  description={blog.metadata.introduction}
+  img={blog.metadata.banner}
+  isArticle
+  created={blog.metadata.created}
+  />
 
 <article id=blog>
   <header class=title>
