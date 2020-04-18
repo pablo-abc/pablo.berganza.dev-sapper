@@ -6,9 +6,9 @@
 <div id=profile-box>
   <img
     id=profile-pic
-    src=img/profile-pic.jpeg
+    src=img/profile-pic-placeholder.jpeg
     alt="Profile picture"
-    use:lazy={{ src: 'img/profile-pic.jpeg' }}
+    use:lazy={{ src: 'img/profile-pic-400.jpeg' }}
     >
   <h3 id=profile-bubble>
     {welcome}

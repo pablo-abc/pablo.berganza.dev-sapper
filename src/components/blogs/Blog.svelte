@@ -2,6 +2,7 @@
   import Icon from 'fa-svelte';
   import ShareButtons from '../ShareButtons.svelte';
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
+  import BlogBanner from './BlogBanner.svelte';
   export let blog;
 </script>
 
@@ -11,7 +12,11 @@
     <h4 class=introduction>{blog.metadata.introduction}</h4>
   </header>
   {#if blog.metadata.banner}
-    <img class=banner src={blog.metadata.banner} alt={blog.metadata.bannertitle} title={blog.metadata.bannertitle}>
+    <BlogBanner
+      src={blog.metadata.banner}
+      alt={blog.metadata.bannertitle}
+      title={blog.metadata.bannertitle}
+      />
   {/if}
   <div class=ttr-created>
     <span class=ttr>
@@ -123,13 +128,6 @@
       white-space: -moz-pre;  /* Mozilla, since 1999 */
       white-space: -pre;      /* Opera 4-6 */
       white-space: -o-pre;    /* Opera 7 */
-  }
-
-  .banner {
-      display: block;
-      margin: 64px auto 64px auto;
-      width: 95%;
-      max-width: 720px;
   }
 
   .content :global(table) {
