@@ -1,0 +1,1 @@
+function s(s,t){const r=new Map;if(r.has(t.src))s.setAttribute("src",t.src);else{const e=new Image;e.src=t.src,e.onload=(()=>{r.set(t.src,e),s.setAttribute("src",t.src)})}return{destroy(){}}}export{s as l};
