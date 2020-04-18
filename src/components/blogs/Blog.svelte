@@ -73,11 +73,13 @@
       display: flex;
       max-width: 720px;
       justify-content: space-between;
+      color: var(--color-primary-3);
   }
 
   .tag-links {
       display: flex;
       max-width: 720px;
+      color: var(--color-primary-3);
   }
 
   .tag-link {
@@ -90,7 +92,6 @@
       max-width: 720px;
       font-weight: 550;
       line-height: 1.2;
-      color: #444;
       border-bottom: 2px solid var(--color-primary-1);
   }
 
@@ -112,10 +113,11 @@
 
   .content :global(blockquote) {
       padding: 8px 10px;
-      margin: 8px 10px;
+      margin: 8px inherit;
       background-color: lighten(var(--color-primary-1,) 20%);
       border-left: 5px solid var(--color-primary-2);
       border-radius: 10px;
+      color: #5A5A5A;
 
   }
 

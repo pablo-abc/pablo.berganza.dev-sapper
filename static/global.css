@@ -26,6 +26,7 @@
     --color-complement-4: #8DE000;
 
     --base-font-size: 1.125em;
+    --base-font-color: #523E49;
 }
 
 a {
@@ -36,8 +37,7 @@ body {
     font-family: 'Overpass', 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: var(--base-font-size);
-    color: #555;
-    color: var(--color-primary-3);
+    color: var(--base-font-color);
     margin: 0;
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--background-color);

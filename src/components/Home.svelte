@@ -33,7 +33,7 @@
 
  .abilities :global(p), .about-me :global(p) {
       text-align: center;
-      color: #333;
+      color: #361E2A;
       margin: 0 10px;
       max-width: 720px;
   }

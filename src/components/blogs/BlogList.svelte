@@ -67,7 +67,7 @@
 
   .ttr-created {
       display: flex;
-      color: #555;
+      color: #77606C;
       font-style: italic;
       margin-top: 0px;
       margin-bottom: 8px;
@@ -79,7 +79,7 @@
 
   .introduction {
       margin: 0px;
-      color: #333;
+      color: var(--base-font-color);
   }
 
   h3 {
@@ -88,7 +88,7 @@
   }
 
   .blog-item:hover {
-      background-color: var(--color-secondary-2-1);
+      background-color: #ECDFFF;
       text-decoration: none;
   }
 </style>

@@ -54,7 +54,6 @@
   section {
       margin: 0 10px;
       max-width: 720px;
-      color: #555;
       font-weight: 550;
 
   }
