@@ -16,7 +16,7 @@ async function generatePlaceholder(imgPath) {
   const { input, output } = getPaths(imgPath, 'placeholder');
   const image = await Jimp.read(input);
   console.log('Processing', input);
-  await image.resize(200, Jimp.AUTO);
+  await image.resize(50, Jimp.AUTO);
   await image.quality(70);
   await image.blur(10);
   console.log('Writing', output, 'to', output);
