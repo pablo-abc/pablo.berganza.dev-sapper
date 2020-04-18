@@ -2,11 +2,12 @@
   import Icon from 'fa-svelte';
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
   export let blogs;
+  export let title = 'Blog';
 </script>
 
 <section class=blog-posts>
   <header class=title>
-    <h1>Blog</h1>
+    <h1>{title}</h1>
   </header>
   <section class=blog-list>
     {#each blogs as blog}
