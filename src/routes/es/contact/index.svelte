@@ -1,6 +1,6 @@
 <script context="module">
   export async function preload() {
-    const resp = await this.fetch('contact.json?lang=es');
+    const resp = await this.fetch('es/contact.json');
     const data = await resp.json();
     return { contact: data };
   }

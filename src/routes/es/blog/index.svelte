@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`blog.json?lang=es`).then(r => r.json()).then(blogs => {
+    return this.fetch(`es/blog.json`).then(r => r.json()).then(blogs => {
       return { blogs };
     });
   }

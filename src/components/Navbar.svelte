@@ -9,7 +9,9 @@
   $: otherLangPath = (lang === 'en' ? 'es' + $page.path : $page.path.slice(4)) || './';
   async function changeLang(e) {
     e.preventDefault()
-    if (process.browser) location = otherLangPath;
+    if (lang === 'en') $session.lang = 'es';
+    else $session.lang = 'en';
+    await goto(otherLangPath)
   }
 </script>
 
