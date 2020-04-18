@@ -1,5 +1,10 @@
 <script>
+  import { stores } from '@sapper/app';
   import Navbar from '../components/Navbar.svelte';
+  export let segment;
+  const { session } = stores();
+  if (segment === 'es') $session.lang = 'es';
+  else $session.lang = 'en';
 </script>
 
 <header>

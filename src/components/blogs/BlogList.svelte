@@ -1,8 +1,12 @@
 <script>
+  import { stores } from '@sapper/app';
   import Icon from 'fa-svelte';
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
   export let blogs;
   export let title = 'Blog';
+  const { session } = stores();
+  $: lang = $session.lang;
+  $: langPath = lang === 'en' ? '' : lang + '/' ;
 </script>
 
 <section class=blog-posts>
@@ -11,7 +15,7 @@
   </header>
   <section class=blog-list>
     {#each blogs as blog}
-      <a class=blog-item rel='prefetch' href='blog/{blog.slug}'>
+      <a class=blog-item rel="prefetch" href="{langPath}blog/{blog.slug}">
         <article>
           <h3>{blog.title}</h3>
           <p class=ttr-created>

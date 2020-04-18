@@ -1,26 +1,48 @@
 <script>
+  import { stores, goto } from '@sapper/app';
   import Icon from 'fa-svelte';
   import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
   import IconLink from './IconLink.svelte';
+  const { session, page } = stores();
+  $: lang = $session.lang;
+  $: langPath = lang === 'en' ? '' : lang + '/' ;
+  $: otherLangPath = (lang === 'en' ? 'es' + $page.path : $page.path.slice(4)) || './';
+  async function changeLang(e) {
+    e.preventDefault()
+    if (lang === 'en') $session.lang = 'es';
+    else $session.lang = 'en';
+    await goto(otherLangPath);
+  }
 </script>
 
 <nav>
   <div class=left-nav>
-    <a id=logo href="./">
+    <a id=logo href="./{langPath}">
       <span>Pablo</span>
       <span>Berganza</span>
     </a>
     <div class=nav-items>
-      <a id=blog-nav class=nav-item href="blog">
+      <a id=blog-nav rel=prefetch class=nav-item href="{langPath}blog">
         Blog
       </a>
       |
-      <a id=contact-nav class=nav-item href="contact">
-        Contact Me
+      <a id=contact-nav class=nav-item href="{langPath}contact">
+        {#if lang === 'es'}
+          Contáctame
+        {:else}
+          Contact Me
+        {/if}
       </a>
     </div>
   </div>
   <div class=right-nav>
+    <a rel=prefetch href={otherLangPath} on:click={changeLang}>
+      {#if lang === 'en'}
+        es
+      {:else}
+        en
+      {/if}
+    </a>
     <IconLink href="https://github.com/pablo-abc" title="GitHub">
       <Icon icon={faGithub} />
     </IconLink>

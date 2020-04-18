@@ -1,9 +1,13 @@
 <script>
+  import { stores, goto } from '@sapper/app';
   import Icon from 'fa-svelte';
   import ShareButtons from '../ShareButtons.svelte';
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
   import BlogBanner from './BlogBanner.svelte';
   export let blog;
+  const { session, page } = stores();
+  $: lang = $session.lang;
+  $: langPath = lang === 'en' ? '' : lang + '/' ;
 </script>
 
 <article id=blog>
@@ -32,7 +36,7 @@
   <div class=tag-links>
     Tags:
     {#each blog.metadata.tags as tag}
-      <a class=tag-link href={`/blog/tags/${tag}`}>
+      <a class=tag-link href="{langPath}blog/tags/{tag}">
         {tag}
       </a>
     {/each}

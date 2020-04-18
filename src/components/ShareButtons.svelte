@@ -1,11 +1,13 @@
 <script>
+  import { stores } from '@sapper/app';
   import { host } from '../../site.config.js';
   import Icon from 'fa-svelte';
   import ShareButton from './ShareButton.svelte';
   import { faRedditSquare, faLinkedin, faTwitterSquare, faFacebookSquare, faGetPocket } from '@fortawesome/free-brands-svg-icons';
   export let blog
-  export let lang = 'en';
+  const { session } = stores();
   const encoded = encodeURI(host + '/' + blog.slug);
+  $: lang = $session.lang
 </script>
 
 <ul class=share-buttons>

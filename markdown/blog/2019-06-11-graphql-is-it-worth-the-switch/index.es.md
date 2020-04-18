@@ -18,7 +18,7 @@ Pero antes de hablar más sobre GraphQL, veamos qué es tan bueno sobre REST.
 
 ## REST
 
-REST esun estilo de arquitectura que defina una serie de reglas para construir servicios web. Cuando alguien habla de un API que sigue la arquitectura propuesta por REST, suelen referirse a un servidor que se comunica con el cliente por medio del protocolo HTTP. El cliente se aprovecha de los distintos métodos HTTP (GET, POST, PUT, PATCH, DELETE) para hacer consultas a direcciones en el API que representan recursos.
+REST es un estilo de arquitectura que define una serie de reglas para construir servicios web. Cuando alguien habla de un API que sigue la arquitectura propuesta por REST, suelen referirse a un servidor que se comunica con el cliente por medio del protocolo HTTP. El cliente se aprovecha de los distintos métodos HTTP (GET, POST, PUT, PATCH, DELETE) para hacer consultas a direcciones en el API que representan recursos.
 
 Algunos ejemplos de endpoints REST son:
 

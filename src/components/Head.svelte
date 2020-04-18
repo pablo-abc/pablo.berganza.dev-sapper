@@ -3,10 +3,10 @@
   export let title;
   export let description;
   export let lang = 'en';
-  export let url;
-  export let img;
+  export let url = '';
+  export let img = '';
   export let isArticle = false;
-  export let created;
+  export let created = '';
 </script>
 
 <svelte:head>
