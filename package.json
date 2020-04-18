@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --entry '/ /404'",
+    "export": "NODE_ENV=production sapper export --entry '/ /404'",
     "start": "node __sapper__/build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",

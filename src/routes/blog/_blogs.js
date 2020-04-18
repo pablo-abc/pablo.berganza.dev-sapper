@@ -17,11 +17,16 @@ renderer.code = (source, lang) => {
 }
 
 export default function getBlogs(lang = 'en') {
-  const fileNames = glob.sync(path.resolve(`./markdown/blog/**/*.${lang}.md`));
-  const mds = fileNames.map(fileName => ({
+  const fileNames = glob.sync(path.resolve(`./src/markdown/blog/**/*.${lang}.md`));
+  let mds = fileNames.map(fileName => ({
     ...fm(fs.readFileSync(fileName).toString()),
     path: fileName,
   }));
+
+  if (process.env.NODE_ENV === 'production') {
+    mds = mds.filter(md => !md.attributes.draft);
+  }
+
   const blogs = mds.map(md => ({
     ...md,
     metadata: md.attributes,
