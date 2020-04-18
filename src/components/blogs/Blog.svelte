@@ -85,6 +85,8 @@
   }
 
   .content {
+      display: flex;
+      flex-direction: column;
       max-width: 720px;
       font-weight: 550;
       line-height: 1.2;
@@ -132,11 +134,20 @@
       white-space: -moz-pre;  /* Mozilla, since 1999 */
       white-space: -pre;      /* Opera 4-6 */
       white-space: -o-pre;    /* Opera 7 */
+      align-self: center;
+      width: 95%;
   }
 
-  .content :global(table) {
+  .content :global(iframe), .content :global(table) {
+      align-self: center;
       border: 4px solid var(--color-primary-2);
       border-radius: 10px;
-      margin: 0px auto;
+      margin: inherit 10px;
+      width: 95%;
+  }
+
+  .content > :global(*) {
+      margin-top: 8px;
+      margin-bottom: 8px;
   }
 </style>

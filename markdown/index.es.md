@@ -2,7 +2,7 @@
 blog: Blog
 contactme: Contáctame
 welcome: Hola, soy un desarrollador web! Bienvenido!
-aboutme: Acerca de mi
+aboutme: Acerca de mí
 myabilities: Mis habilidades
 type: home
 ---
