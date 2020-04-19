@@ -7,6 +7,7 @@
   {href}
   target="_blank"
   {title}
+  rel="noopener noreferrer"
   >
   <slot></slot>
   <span class=sr-only>{title}</span>
