@@ -232,4 +232,6 @@ Aún tomando en cuenta las desventajas que mencioné anteriormente, trabajar con
 
 Como un pequeño extra, aquí está la charla que me emocionó acerca de Svelte. Recomiendo que cualquiera con un poco de interés en Svelte lo vea. (Está en inglés).
 
-<iframe height="315" src="https://www.youtube.com/embed/AdNJ3fydeao" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="yt-vid">
+    <yt-vid src="https://www.youtube-nocookie.com/embed/AdNJ3fydeao" allowfullscreen></yt-vid>
+</div>

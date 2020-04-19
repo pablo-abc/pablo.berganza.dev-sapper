@@ -232,4 +232,6 @@ Even taking into account the downsides mentioned before, Svelte/Sapper has been 
 
 As a little extra, here's the talk that got me excited about Svelte. I recommend everyone with a slight interest on Svelte to watch it.
 
-<iframe height="315" src="https://www.youtube.com/embed/AdNJ3fydeao" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="yt-vid">
+    <yt-vid src="https://www.youtube-nocookie.com/embed/AdNJ3fydeao" allowfullscreen></yt-vid>
+</div>

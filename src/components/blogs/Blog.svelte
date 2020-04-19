@@ -147,6 +147,17 @@
       margin: inherit 10px;
       width: 95%;
   }
+  .content :global(.yt-vid) {
+      align-self: center;
+      width: 95%;
+  }
+
+  .content :global(yt-vid) {
+      --width: 100%;
+      --height: 315px;
+      --border: 4px solid var(--color-primary-2);
+      --border-radius: 10px;
+  }
 
   .content > :global(*) {
       margin-top: 8px;
