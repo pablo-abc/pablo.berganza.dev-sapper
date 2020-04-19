@@ -1,4 +1,5 @@
 <script>
+  import { srcName } from '../helpers.js';
   import { host } from '../../site.config.js';
   export let title;
   export let description;
@@ -7,6 +8,7 @@
   export let img = '';
   export let isArticle = false;
   export let created = '';
+  $: imgSrc = srcName(img, '800');
 </script>
 
 <svelte:head>
@@ -15,8 +17,8 @@
   <meta itemdrop=name content={title}>
   <meta itemdrop=description content={description}>
   {#if img}
-    <meta name="twitter:image:src" content={`${host}/${img}`}>
-    <meta property="og:image" content={`${host}/${img}`}>
+    <meta name="twitter:image:src" content={`${host}/${imgSrc}`}>
+    <meta property="og:image" content={`${host}/${imgSrc}`}>
   {/if}
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content={title}>

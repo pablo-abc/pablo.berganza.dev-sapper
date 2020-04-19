@@ -1,3 +1,5 @@
+import path from 'path-browserify';
+
 export function lazy(node, data) {
   const loaded = new Map();
   if (loaded.has(data.src)) {
@@ -13,4 +15,9 @@ export function lazy(node, data) {
   return {
     destroy() {},
   };
+}
+
+export function srcName(src, extName) {
+  const { dir, name, ext } = path.parse(src);
+  return path.join(dir, `${name}-${extName}${ext}`);
 }

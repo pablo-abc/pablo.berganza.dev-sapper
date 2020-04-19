@@ -1,10 +1,6 @@
 <script>
-  import path from 'path-browserify';
+  import { srcName } from '../../helpers.js';
   import { lazy } from '../../helpers.js';
-  function srcName(src, extName) {
-    const { dir, name, ext } = path.parse(src);
-    return path.join(dir, `${name}-${extName}${ext}`);
-  }
   export let src;
   export let alt;
   export let title;
