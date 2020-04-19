@@ -59,6 +59,8 @@ export default function getBlogs(lang = 'en') {
 
     const blogDir = path.dirname(blog.path).split(path.sep);
     const slug = blogDir[blogDir.length - 1].slice(11);
+    const created = blogDir[blogDir.length - 1].slice(0, 10);
+    blog.metadata.created = created;
     return {
       ...blog,
       slug,
