@@ -87,7 +87,7 @@
       margin: 0;
   }
 
-  .blog-item:hover {
+  .blog-item:hover, .blog-item:active {
       background-color: #ECDFFF;
       text-decoration: none;
   }
