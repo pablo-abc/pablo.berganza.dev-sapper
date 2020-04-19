@@ -1,6 +1,6 @@
 ---
 title: 'Svelte: mi nueva obsesión'
-introduction: Le di una oportunidad a Svelte y terminé reescribiendo todo mi sitio
+description: Le di una oportunidad a Svelte y terminé reescribiendo todo mi sitio
 banner: img/blog-pics/2020-04-20.jpg
 bannertitle: Salónica, Grecia
 tags:
@@ -233,5 +233,5 @@ Aún tomando en cuenta las desventajas que mencioné anteriormente, trabajar con
 Como un pequeño extra, aquí está la charla que me emocionó acerca de Svelte. Recomiendo que cualquiera con un poco de interés en Svelte lo vea. (Está en inglés).
 
 <div class="yt-vid">
-    <yt-vid src="https://www.youtube-nocookie.com/embed/AdNJ3fydeao" allowfullscreen></yt-vid>
+    <yt-vid alt="Rethinking Reactivity - Rich Harris" src="https://www.youtube-nocookie.com/embed/AdNJ3fydeao" allowfullscreen></yt-vid>
 </div>

@@ -8,7 +8,7 @@ export function get(req, res) {
       title: blog.metadata.title,
       created: blog.metadata.created,
       slug: blog.slug,
-      introduction: blog.metadata.introduction,
+      description: blog.metadata.description,
       ttr: blog.ttr,
     };
   }));

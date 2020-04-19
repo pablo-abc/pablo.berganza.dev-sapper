@@ -13,7 +13,7 @@
 <article id=blog>
   <header class=title>
     <h1>{blog.metadata.title}</h1>
-    <h4 class=introduction>{blog.metadata.introduction}</h4>
+    <h4 class=description>{blog.metadata.description}</h4>
   </header>
   {#if blog.metadata.banner}
     <BlogBanner
@@ -46,6 +46,7 @@
   </section>
   <footer>
     <ShareButtons {blog} />
+    <div id="commento"></div>
   </footer>
 </article>
 
@@ -63,7 +64,7 @@
       color: var(--color-secondary-2-0);
   }
 
-  .introduction {
+  .description {
       margin: 0;
       color: var(--color-primary-4);
       padding: 0 0 16px 0;

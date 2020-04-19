@@ -1,6 +1,6 @@
 ---
 title: Start of a New Digital Journey
-introduction: How I made my life difficult by trying to create my website from scratch
+description: How I made my life difficult by trying to create my website from scratch
 created: '2019-03-18'
 banner: img/blog-pics/2019-03-18.jpg
 bannertitle: Brussels, Belgium

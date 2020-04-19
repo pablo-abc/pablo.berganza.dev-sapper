@@ -29,7 +29,7 @@
               {blog.created}
             </span>
           </p>
-          <p class=introduction>{blog.introduction}</p>
+          <p class=description>{blog.description}</p>
         </article>
       </a>
     {/each}
@@ -77,7 +77,7 @@
       margin-right: 24px;
   }
 
-  .introduction {
+  .description {
       margin: 0px;
       color: var(--base-font-color);
   }

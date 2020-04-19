@@ -19,7 +19,7 @@
 
 <Head
   title={blog.metadata.title + ' | Pablo Berganza'}
-  description={blog.metadata.introduction}
+  description={blog.metadata.description}
   img={blog.metadata.banner}
   isArticle
   created={blog.metadata.created}

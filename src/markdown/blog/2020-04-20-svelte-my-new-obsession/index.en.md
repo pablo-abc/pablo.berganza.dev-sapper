@@ -1,6 +1,6 @@
 ---
 title: 'Svelte: my new obsession'
-introduction: I gave Svelte a try and ended up rewriting my whole site
+description: I gave Svelte a try and ended up rewriting my whole site
 banner: img/blog-pics/2020-04-20.jpg
 bannertitle: Thessaloniki, Greece
 tags:
@@ -233,5 +233,5 @@ Even taking into account the downsides mentioned before, Svelte/Sapper has been 
 As a little extra, here's the talk that got me excited about Svelte. I recommend everyone with a slight interest on Svelte to watch it.
 
 <div class="yt-vid">
-    <yt-vid src="https://www.youtube-nocookie.com/embed/AdNJ3fydeao" allowfullscreen></yt-vid>
+    <yt-vid alt="Rethinking Reactivity - Rich Harris" src="https://www.youtube-nocookie.com/embed/AdNJ3fydeao" allowfullscreen></yt-vid>
 </div>
