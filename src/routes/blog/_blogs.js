@@ -16,6 +16,28 @@ renderer.code = (source, lang) => {
   return `<pre class="${lang} hljs"><code>${value}</code></pre>`
 }
 
+renderer.link = (href, title, text) => {
+  const isExternal = /^https?/.test(href);
+  const attributes = isExternal
+        ? 'target="_blank" rel="noopener noreferrer'
+        : '';
+  return `<a
+            href="${href}"
+            ${attributes}
+            title="${title || text}"
+          >
+            ${text}
+          </a>`;
+}
+
+renderer.image = (href, title, text) => {
+  return `<img
+            src="${href}"
+            title="${title || text}"
+            alt="${text}"
+          >`;
+}
+
 export default function getBlogs(lang = 'en') {
   const fileNames = glob.sync(path.resolve(`./src/markdown/blog/**/*.${lang}.md`));
   let mds = fileNames.map(fileName => ({
