@@ -58,7 +58,7 @@ export default function getBlogs(lang = 'en') {
   return blogs.map(blog => {
 
     const blogDir = path.dirname(blog.path).split(path.sep);
-    const slug = blogDir[blogDir.length - 1];
+    const slug = blogDir[blogDir.length - 1].slice(11);
     return {
       ...blog,
       slug,
