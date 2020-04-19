@@ -17,7 +17,7 @@
   <meta itemdrop=name content={title}>
   <meta itemdrop=description content={description}>
   {#if img}
-    <meta name="twitter:image:src" content={`${host}/${imgSrc}`}>
+    <meta name="twitter:image" content={`${host}/${imgSrc}`}>
     <meta property="og:image" content={`${host}/${imgSrc}`}>
   {/if}
   <meta name="twitter:card" content="summary">
