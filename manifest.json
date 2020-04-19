@@ -1,20 +1,20 @@
 {
-	"background_color": "#ffffff",
-	"theme_color": "#333333",
-	"name": "TODO",
-	"short_name": "TODO",
-	"display": "minimal-ui",
-	"start_url": "/",
-	"icons": [
-		{
-			"src": "logo-192.png",
-			"sizes": "192x192",
-			"type": "image/png"
-		},
-		{
-			"src": "logo-512.png",
-			"sizes": "512x512",
-			"type": "image/png"
-		}
-	]
+  "background_color": "#ffffff",
+  "theme_color": "#333333",
+  "name": "pablo.berganza.dev",
+  "short_name": "pablo.berganza.dev",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "android-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
 }
