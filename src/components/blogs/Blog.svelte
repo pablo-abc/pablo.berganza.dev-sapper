@@ -46,7 +46,6 @@
   </section>
   <footer>
     <ShareButtons {blog} />
-    <div id="commento"></div>
   </footer>
 </article>
 
