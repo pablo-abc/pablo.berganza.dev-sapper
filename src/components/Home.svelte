@@ -31,6 +31,10 @@
       margin-bottom: 0;
   }
 
+  .about-me h2 {
+      color: #8C0048;
+  }
+
  .abilities :global(p), .about-me :global(p) {
       text-align: center;
       color: #361E2A;

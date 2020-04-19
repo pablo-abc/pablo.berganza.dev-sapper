@@ -41,6 +41,7 @@
       border-radius: 50px;
       line-height: 1;
       text-align: center;
+      font-family: 'Overpass', 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
   }
 
   @media only screen and (min-width: 600px) {
