@@ -65,7 +65,7 @@
 
   .introduction {
       margin: 0;
-      color: var(--color-primary-0);
+      color: var(--color-primary-4);
       padding: 0 0 16px 0;
   }
 

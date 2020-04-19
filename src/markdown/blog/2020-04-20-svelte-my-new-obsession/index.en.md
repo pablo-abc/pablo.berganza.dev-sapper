@@ -74,7 +74,7 @@ The template of a Svelte component does not need to be a single element, so we c
 
 This would end up looking like this:
 
-<iframe src="https://pablo-abc.github.io/pablo.berganza.dev-examples/svelte-basic-text-input/"></iframe>
+<iframe title="text-input" src="https://pablo-abc.github.io/pablo.berganza.dev-examples/svelte-basic-text-input/"></iframe>
 
 But this is still too complicated. Svelte provides some “magic” directives in order to make certain operations easier. The `bind` directive helps with two-way data binding.
 
@@ -183,7 +183,7 @@ Here's how a simple to-do app would look like in Svelte:
 </style>
 ```
 
-<iframe height="315px" src="https://pablo-abc.github.io/pablo.berganza.dev-examples/svelte-basic-todo-app/"></iframe>
+<iframe title="todo-app" height="315px" src="https://pablo-abc.github.io/pablo.berganza.dev-examples/svelte-basic-todo-app/"></iframe>
 
 This example uses some features I didn't talk about, but the [official tutorial](https://svelte.dev/tutorial/basics "Svelte official tutorial") is great if you're interested in learning more.
 
