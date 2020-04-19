@@ -19,7 +19,7 @@ renderer.code = (source, lang) => {
 renderer.link = (href, title, text) => {
   const isExternal = /^https?/.test(href);
   const attributes = isExternal
-        ? 'target="_blank" rel="noopener noreferrer'
+        ? 'target="_blank" rel="noopener noreferrer"'
         : '';
   return `<a
             href="${href}"
