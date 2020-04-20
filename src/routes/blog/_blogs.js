@@ -49,24 +49,20 @@ export default function getBlogs(lang = 'en') {
     mds = mds.filter(md => !md.attributes.draft);
   }
 
-  const blogs = mds.map(md => ({
-    ...md,
-    metadata: md.attributes,
-    html: marked(md.body, { renderer })
-  }));
-
-  return blogs.map(blog => {
-
-    const blogDir = path.dirname(blog.path).split(path.sep);
+  const blogs = mds.map(md => {
+    const blogDir = path.dirname(md.path).split(path.sep);
     const slug = blogDir[blogDir.length - 1].slice(11);
     const created = blogDir[blogDir.length - 1].slice(0, 10);
-    blog.metadata.created = created;
+    md.attributes.created = created;
     return {
-      ...blog,
+      ...md,
+      html: marked(md.body, { renderer }),
+      ttr: Math.ceil(readingTime(md.body, { wordsPerMinute: 200 }).minutes),
       slug,
-      ttr: Math.ceil(readingTime(blog.html, {wordsPerMinute: 200}).minutes),
-    };
-  }).sort((a, b) => {
-    return (new Date(b.metadata.created)).getTime() - (new Date(a.metadata.created)).getTime();
+    }
+  });
+
+  return blogs.sort((a, b) => {
+    return (new Date(b.attributes.created)).getTime() - (new Date(a.attributes.created)).getTime();
   });
 }
