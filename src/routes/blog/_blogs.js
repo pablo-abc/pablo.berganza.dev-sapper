@@ -4,39 +4,7 @@ import glob from 'globby';
 import fs from 'fs';
 import fm from 'front-matter';
 import marked from 'marked';
-import hljs from 'highlight.js';
-import hljsDefineGraphQL from 'highlightjs-graphql';
-
-hljsDefineGraphQL(hljs);
-
-const renderer = new marked.Renderer();
-
-renderer.code = (source, lang) => {
-  const { value } = hljs.highlight(lang, source);
-  return `<pre class="${lang} hljs"><code>${value}</code></pre>`
-}
-
-renderer.link = (href, title, text) => {
-  const isExternal = /^https?/.test(href);
-  const metadata = isExternal
-        ? 'target="_blank" rel="noopener noreferrer"'
-        : '';
-  return `<a
-            href="${href}"
-            ${metadata}
-            title="${title || text}"
-          >
-            ${text}
-          </a>`;
-}
-
-renderer.image = (href, title, text) => {
-  return `<img
-            src="${href}"
-            title="${title || text}"
-            alt="${text}"
-          >`;
-}
+import { renderer } from '../../helpers.js';
 
 export default function getBlogs(lang = 'en') {
   const fileNames = glob.sync(path.resolve(`./src/markdown/blog/**/*.${lang}.md`));
