@@ -5,10 +5,10 @@ export function get(req, res) {
 
   const contents = JSON.stringify(blogs.map(blog => {
     return {
-      title: blog.attributes.title,
-      created: blog.attributes.created,
+      title: blog.metadata.title,
+      created: blog.metadata.created,
       slug: blog.slug,
-      description: blog.attributes.description,
+      description: blog.metadata.description,
       ttr: blog.ttr,
     };
   }));

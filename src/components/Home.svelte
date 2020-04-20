@@ -6,14 +6,14 @@
 
 <section class=main>
   <section class=main-info>
-    <ProfileBox welcome={index.attributes.welcome} />
+    <ProfileBox welcome={index.metadata.welcome} />
   </section>
   <section class=about-me>
-    <h2>{index.attributes.aboutme}</h2>
+    <h2>{index.metadata.aboutme}</h2>
     {@html index.html}
   </section>
   <section class=abilities>
-    <h2>{index.attributes.myabilities}</h2>
+    <h2>{index.metadata.myabilities}</h2>
     <AbilityBoxes />
   </section>
 </section>

@@ -14,14 +14,14 @@
 
 <article id=blog>
   <header class=title>
-    <h1>{blog.attributes.title}</h1>
-    <h4 class=description>{blog.attributes.description}</h4>
+    <h1>{blog.metadata.title}</h1>
+    <h4 class=description>{blog.metadata.description}</h4>
   </header>
-  {#if blog.attributes.banner}
+  {#if blog.metadata.banner}
     <BlogBanner
-      src={blog.attributes.banner}
-      alt={blog.attributes.bannertitle}
-      title={blog.attributes.bannertitle}
+      src={blog.metadata.banner}
+      alt={blog.metadata.bannertitle}
+      title={blog.metadata.bannertitle}
       />
   {/if}
   <div class=ttr-created>
@@ -32,12 +32,12 @@
     </span>
     <span class=created>
       <Icon icon={faCalendarAlt} />
-      {blog.attributes.created}
+      {blog.metadata.created}
     </span>
   </div>
   <div class=tag-links>
     Tags:
-    {#each blog.attributes.tags as tag}
+    {#each blog.metadata.tags as tag}
       <a class=tag-link href="{langPath}blog/tags/{tag}">
         {tag}
       </a>

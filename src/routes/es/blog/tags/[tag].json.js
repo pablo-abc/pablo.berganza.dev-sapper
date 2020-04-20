@@ -6,15 +6,15 @@ export function get(req, res, next) {
   const blogs = getBlogs('es');
   const { tag } = req.params;
   const foundBlogs = blogs.filter(blog => {
-    return blog.attributes.tags.includes(tag)
+    return blog.metadata.tags.includes(tag)
   });
 
   const contents = foundBlogs.map(blog => {
     return {
-      title: blog.attributes.title,
-      created: blog.attributes.created,
+      title: blog.metadata.title,
+      created: blog.metadata.created,
       slug: blog.slug,
-      description: blog.attributes.description,
+      description: blog.metadata.description,
       ttr: blog.ttr,
     };
   });

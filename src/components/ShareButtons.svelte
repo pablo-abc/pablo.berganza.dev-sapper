@@ -22,7 +22,7 @@
     <ShareButton
       href={'https://www.facebook.com/sharer/sharer.php?u=' +
       encoded + '&quote=' +
-      blog.attributes.description}
+      blog.metadata.description}
       title="Share on Facebook"
       >
       <Icon icon={faFacebookSquare} />
@@ -32,7 +32,7 @@
     <ShareButton
       href={'https://twitter.com/intent/tweet?source=' +
       encoded + '&text=' +
-      blog.attributes.description + ':%20' +
+      blog.metadata.description + ':%20' +
       encoded + '&via=Pablo_ABC'}
       title="Tweet"
       >
@@ -43,7 +43,7 @@
     <ShareButton
       href={'https://getpocket.com/save?url=' +
       encoded + '&title=' +
-      blog.attributes.title}
+      blog.metadata.title}
       title="Add to Pocket"
       >
       <Icon icon={faGetPocket} />
@@ -53,7 +53,7 @@
     <ShareButton
       href={'http://www.reddit.com/submit?url=' +
       encoded + '&title=' +
-      blog.attributes.title}
+      blog.metadata.title}
       title="Submit to Reddit"
       >
       <Icon icon={faRedditSquare} />
@@ -63,8 +63,8 @@
     <ShareButton
       href={'http://www.linkedin.com/shareArticle?mini=true&url=' +
       encoded + '&title=' +
-      blog.attributes.title +
-      '&summary=' + blog.attributes.description +
+      blog.metadata.title +
+      '&summary=' + blog.metadata.description +
       '&source=' + encoded}
       title="Share on LinkedIn"
       >

@@ -18,11 +18,11 @@
 </script>
 
 <Head
-  title={blog.attributes.title + ' | Pablo Berganza'}
-  description={blog.attributes.description}
-  img={blog.attributes.banner}
+  title={blog.metadata.title + ' | Pablo Berganza'}
+  description={blog.metadata.description}
+  img={blog.metadata.banner}
   isArticle
-  created={blog.attributes.created}
+  created={blog.metadata.created}
   url="/blog/{blog.slug}"
   />
 

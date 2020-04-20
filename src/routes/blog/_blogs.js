@@ -18,12 +18,12 @@ renderer.code = (source, lang) => {
 
 renderer.link = (href, title, text) => {
   const isExternal = /^https?/.test(href);
-  const attributes = isExternal
+  const metadata = isExternal
         ? 'target="_blank" rel="noopener noreferrer"'
         : '';
   return `<a
             href="${href}"
-            ${attributes}
+            ${metadata}
             title="${title || text}"
           >
             ${text}
@@ -56,6 +56,7 @@ export default function getBlogs(lang = 'en') {
     md.attributes.created = created;
     return {
       ...md,
+      metadata: md.attributes,
       html: marked(md.body, { renderer }),
       ttr: Math.ceil(readingTime(md.body, { wordsPerMinute: 200 }).minutes),
       slug,
@@ -63,6 +64,6 @@ export default function getBlogs(lang = 'en') {
   });
 
   return blogs.sort((a, b) => {
-    return (new Date(b.attributes.created)).getTime() - (new Date(a.attributes.created)).getTime();
+    return (new Date(b.metadata.created)).getTime() - (new Date(a.metadata.created)).getTime();
   });
 }

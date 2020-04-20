@@ -9,13 +9,13 @@
 
 <section class=contact>
   <header class=title>
-    <h1>{contact.attributes.contactme}</h1>
+    <h1>{contact.metadata.contactme}</h1>
   </header>
   <section>
     {@html contact.html}
     <dl>
       <dt>
-        {contact.attributes.socialmedia}
+        {contact.metadata.socialmedia}
       </dt>
       <dd>
         <IconLink href="https://github.com/pablo-abc" title="GitHub">
@@ -38,7 +38,7 @@
         </IconLink>
       </dd>
       <dt>
-        {contact.attributes.email}
+        {contact.metadata.email}
       </dt>
       <dd>
         <a href="mailto:pablo@berganza.dev">
