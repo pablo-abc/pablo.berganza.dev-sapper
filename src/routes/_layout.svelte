@@ -28,6 +28,7 @@
       background-color: var(--background-color);
       opacity: 0.9;
       max-height: 107px;
+      z-index: 99999;
   }
 
   @media only screen and (min-width: 362px) {

@@ -1,18 +1,15 @@
 <script>
-  import { onMount } from 'svelte';
   import { stores, goto } from '@sapper/app';
   import Icon from 'fa-svelte';
   import ShareButtons from '../ShareButtons.svelte';
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
   import BlogBanner from './BlogBanner.svelte';
+  import Commento from '../Commento.svelte';
   export let blog;
   const { session, page } = stores();
   let mounted = false;
   $: lang = $session.lang;
   $: langPath = lang === 'en' ? '' : lang + '/' ;
-  onMount(() => {
-    mounted = true;
-  })
 </script>
 
 <article id=blog>
@@ -51,10 +48,7 @@
   </section>
   <footer>
     <ShareButtons {blog} />
-    <div id="commento"></div>
-    {#if mounted}
-      <script src="https://cdn.commento.io/js/commento.js"></script>
-    {/if}
+    <Commento src="http://localhost:8080/js/commento.js" />
   </footer>
 </article>
 
