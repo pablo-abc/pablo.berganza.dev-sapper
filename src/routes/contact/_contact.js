@@ -1,11 +1,7 @@
-import contact from '../../markdown/contact.en.md';
-import contactEs from '../../markdown/contact.es.md';
+import path from 'path';
+import { readMarkdownFile } from '../../server-helpers.js';
 
-export default function getContact(lang = 'en') {
-  switch (lang) {
-  case 'en':
-    return contact;
-  case 'es':
-    return contactEs
-  }
+export default async function getContact(lang = 'en') {
+  const filePath = path.resolve(`./src/markdown/contact.${lang}.md`);
+  return readMarkdownFile(filePath);
 }

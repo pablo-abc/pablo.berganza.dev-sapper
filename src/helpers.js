@@ -14,12 +14,12 @@ renderer.code = (source, lang) => {
 
 renderer.link = (href, title, text) => {
   const isExternal = /^https?/.test(href);
-  const metadata = isExternal
+  const attributes = isExternal
         ? 'target="_blank" rel="noopener noreferrer"'
         : '';
   return `<a
             href="${href}"
-            ${metadata}
+            ${attributes}
             title="${title || text}"
           >
             ${text}

@@ -1,11 +1,7 @@
-import index from '../markdown/index.en.md';
-import indexEs from '../markdown/index.es.md';
+import path from 'path';
+import { readMarkdownFile } from '../server-helpers.js';
 
-export default function getIndex(lang = 'en') {
-  switch (lang) {
-  case 'en':
-    return index;
-  case 'es':
-    return indexEs;
-  }
+export default async function getIndex(lang = 'en') {
+  const filePath = path.resolve(`./src/markdown/index.${lang}.md`);
+  return readMarkdownFile(filePath);
 }

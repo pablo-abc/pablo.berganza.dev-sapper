@@ -1,7 +1,7 @@
 import getContact from '../../contact/_contact.js';
 
-export function get(req, res, next) {
-  const contact = getContact('es');
+export async function get(req, res, next) {
+  const contact = await getContact('es');
   res.writeHead(200, {
     'Content-Type': 'application/json'
   });
