@@ -8,6 +8,7 @@
   export let img = '';
   export let isArticle = false;
   export let created = '';
+  export let ttr;
   $: imgSrc = srcName(img, '800');
 </script>
 
@@ -19,8 +20,10 @@
   {#if img}
     <meta name="twitter:image" content={`${host}/${imgSrc}`}>
     <meta property="og:image" content={`${host}/${imgSrc}`}>
+    <meta name="twitter:card" content="summary_large_image">
+  {:else}
+    <meta name="twitter:card" content="summary">
   {/if}
-  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:site" content="Pablo_ABC">
@@ -36,6 +39,15 @@
   {#if isArticle}
     <meta property="article:author" content="Pablo Berganza">
     <meta property="article:published_time" content={created}>
+    {#if lang === 'en'}
+      <meta name="twitter:label1" value="Reading time">
+      <meta name="twitter:label2" value="Author">
+    {:else}
+      <meta name="twitter:label1" value="Tiempo de lectura">
+      <meta name="twitter:label2" value="Autor">
+    {/if}
+    <meta name="twitter:data1" value="{ttr} min">
+    <meta name="twitter:data2" value="Pablo Berganza">
   {/if}
   <title>{title}</title>
 </svelte:head>

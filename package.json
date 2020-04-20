@@ -20,7 +20,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "predeploy": "mv __sapper__/export/404/index.html __sapper__/export/404.html",
+    "predeploy": "rm __sapper__/export/service-worker-index.html && mv __sapper__/export/404/index.html __sapper__/export/404.html",
     "deploy": "gh-pages -d __sapper__/export/"
   },
   "dependencies": {

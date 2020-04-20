@@ -25,6 +25,7 @@
   created={blog.attributes.created}
   url="/es/blog/{blog.slug}"
   lang="es"
+  ttr={blog.ttr}
   />
 
 <Blog {blog} />

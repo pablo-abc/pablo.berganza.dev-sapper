@@ -24,6 +24,7 @@
   isArticle
   created={blog.attributes.created}
   url="/blog/{blog.slug}"
+  ttr={blog.ttr}
   />
 
 <Blog {blog} />
