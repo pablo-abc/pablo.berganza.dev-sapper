@@ -33,6 +33,7 @@
 
   div :global(.commento-email-button) {
       color: var(--color-secondary-2-3) !important;
+      height: 50px !important;
   }
 
   div :global(.commento-login-link) {

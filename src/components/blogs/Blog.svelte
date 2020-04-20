@@ -48,7 +48,11 @@
   </section>
   <footer>
     <ShareButtons {blog} />
-    <Commento src="http://localhost:8080/js/commento.js" />
+    <Commento
+      src={process.env.NODE_ENV === 'production'
+      ? 'https://cdn.commento.io/js/commento.js'
+      : 'http://localhost:8080/js/commento.js'}
+      />
   </footer>
 </article>
 
