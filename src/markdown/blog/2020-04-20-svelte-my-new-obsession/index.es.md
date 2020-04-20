@@ -131,12 +131,9 @@ Una simple aplicación para manejar un listado de cosas por hacer podría verse 
     return todo
   })
   function addTodo() {
+    if (!value) return;
     todos = [...todos, { value, id: Date.now(), checked: false }];
     value = '';
-  }
-  function toggleTodo(event) {
-    const i = todos.findIndex(todo => todo.id === +event.target.id)
-    todos[i].checked = event.target.checked
   }
 </script>
 
@@ -163,9 +160,8 @@ Una simple aplicación para manejar un listado de cosas por hacer podría verse 
     <li>
       <input
         id={todo.id}
-        checked={todo.checked}
+        bind:checked={todo.checked}
         type="checkbox"
-        on:change={toggleTodo}
         >
       {todo.value}
     </li>
