@@ -10,10 +10,7 @@
 <div id="commento"></div>
 
 {#if mounted}
-  <script
-    {src}
-    >
-  </script>
+  <script {src}></script>
 {/if}
 
 <style>
