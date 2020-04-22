@@ -37,6 +37,7 @@ export default {
 	extensions: ['.js', '.mjs', '.html', '.svelte'],
 	runtimeHelpers: true,
 	exclude: ['node_modules/@babel/**'],
+        compact: true,
 	presets: [
           ['@babel/preset-env', {
             targets: '> 0.25%, not dead',
