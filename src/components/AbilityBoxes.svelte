@@ -1,5 +1,5 @@
 <script>
-  import AbilityBox from './AbilityBox.svelte';
+  import AbilityBox from './AbilityBox.svelte'
   let abilities = [
     ['https://cdn.svgporn.com/logos/javascript.svg', 'JavaScript'],
     ['https://cdn.svgporn.com/logos/typescript-icon.svg', 'TypeScript'],
@@ -7,7 +7,7 @@
     ['img/cljs-white.svg', 'ClojureScript'],
     ['https://cdn.svgporn.com/logos/python.svg', 'Python'],
     ['https://cdn.svgporn.com/logos/docker.svg', 'Docker'],
-  ];
+  ]
 </script>
 
 <section class=box-abilities>

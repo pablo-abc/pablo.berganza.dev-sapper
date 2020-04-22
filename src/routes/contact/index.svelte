@@ -1,15 +1,15 @@
 <script context="module">
   export async function preload() {
-    const resp = await this.fetch('contact.json');
-    const data = await resp.json();
-    return { contact: data };
+    const resp = await this.fetch('contact.json')
+    const data = await resp.json()
+    return { contact: data }
   }
 </script>
 
 <script>
-  import Contact from '../../components/Contact.svelte';
-  import Head from '../../components/Head.svelte';
-  export let contact;
+  import Contact from '../../components/Contact.svelte'
+  import Head from '../../components/Head.svelte'
+  export let contact
 </script>
 
 <Head

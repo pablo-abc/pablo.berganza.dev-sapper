@@ -1,4 +1,5 @@
 module.exports = {
+  extends: 'eslint:recommended',
   parserOptions: {
     ecmaVersion: 2019,
     sourceType: 'module'
@@ -17,9 +18,14 @@ module.exports = {
     }
   ],
   rules: {
-    // ...
+    semi: ['warn', 'never'],
+    quotes: ['error', 'single'],
   },
   settings: {
     // ...
-  }
+  },
+  globals: {
+    process: true,
+    require: true,
+  },
 };

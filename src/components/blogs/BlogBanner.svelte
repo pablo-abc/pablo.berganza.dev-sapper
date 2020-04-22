@@ -1,11 +1,11 @@
 <script>
-  import { srcName } from '../../helpers.js';
-  import { lazy } from '../../helpers.js';
-  export let src;
-  export let alt;
-  export let title;
-  $: placeholderSrc = srcName(src, 'placeholder');
-  $: fullSizeSrc = srcName(src, '800');
+  import { srcName } from '../../helpers.js'
+  import { lazy } from '../../helpers.js'
+  export let src
+  export let alt
+  export let title
+  $: placeholderSrc = srcName(src, 'placeholder')
+  $: fullSizeSrc = srcName(src, '800')
 </script>
 
 <img class=banner

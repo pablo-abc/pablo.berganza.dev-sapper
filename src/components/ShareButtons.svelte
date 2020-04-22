@@ -1,12 +1,12 @@
 <script>
-  import { stores } from '@sapper/app';
-  import { host } from '../../site.config.js';
-  import Icon from 'fa-svelte';
-  import ShareButton from './ShareButton.svelte';
-  import { faRedditSquare, faLinkedin, faTwitterSquare, faFacebookSquare, faGetPocket } from '@fortawesome/free-brands-svg-icons';
+  import { stores } from '@sapper/app'
+  import { host } from '../../site.config.js'
+  import Icon from 'fa-svelte'
+  import ShareButton from './ShareButton.svelte'
+  import { faRedditSquare, faLinkedin, faTwitterSquare, faFacebookSquare, faGetPocket } from '@fortawesome/free-brands-svg-icons'
   export let blog
-  const { session } = stores();
-  const encoded = encodeURI(host + '/' + blog.slug);
+  const { session } = stores()
+  const encoded = encodeURI(host + '/' + blog.slug)
   $: lang = $session.lang
 </script>
 

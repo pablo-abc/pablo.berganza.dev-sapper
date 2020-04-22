@@ -1,15 +1,15 @@
 <script context="module">
-  export function preload({ params, query }) {
-    return this.fetch(`es/blog.json`).then(r => r.json()).then(blogs => {
-      return { blogs };
-    });
+  export function preload() {
+    return this.fetch('es/blog.json').then(r => r.json()).then(blogs => {
+      return { blogs }
+    })
   }
 </script>
 
 <script>
-  import Head from '../../../components/Head.svelte';
-  import BlogList from '../../../components/blogs/BlogList.svelte';
-  export let blogs;
+  import Head from '../../../components/Head.svelte'
+  import BlogList from '../../../components/blogs/BlogList.svelte'
+  export let blogs
 </script>
 
 <Head

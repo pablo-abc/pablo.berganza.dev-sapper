@@ -1,13 +1,13 @@
-import getBlogs from '../_blogs.js';
+import getBlogs from '../_blogs.js'
 
-export function get(req, res, next) {
+export function get(req, res) {
   // the `slug` parameter is available because
   // this file is called [slug].json.js
-  const blogs = getBlogs(req.query.lang);
-  const { tag } = req.params;
+  const blogs = getBlogs(req.query.lang)
+  const { tag } = req.params
   const foundBlogs = blogs.filter(blog => {
     return blog.attributes.tags.includes(tag)
-  });
+  })
 
   const contents = foundBlogs.map(blog => {
     return {
@@ -16,22 +16,22 @@ export function get(req, res, next) {
       slug: blog.slug,
       description: blog.attributes.description,
       ttr: blog.ttr,
-    };
-  });
+    }
+  })
 
   if (contents.length > 0) {
     res.writeHead(200, {
       'Content-Type': 'application/json'
-    });
+    })
 
-    res.end(JSON.stringify(contents));
+    res.end(JSON.stringify(contents))
   } else {
     res.writeHead(404, {
       'Content-Type': 'application/json'
-    });
+    })
 
     res.end(JSON.stringify({
-      message: `Not found`
-    }));
+      message: 'Not found'
+    }))
   }
 }

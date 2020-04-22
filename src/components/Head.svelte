@@ -1,15 +1,15 @@
 <script>
-  import { srcName } from '../helpers.js';
-  import { host } from '../../site.config.js';
-  export let title;
-  export let description;
-  export let lang = 'en';
-  export let url = '';
-  export let img = '';
-  export let isArticle = false;
-  export let created = '';
-  export let ttr;
-  $: imgSrc = srcName(img, '800');
+  import { srcName } from '../helpers.js'
+  import { host } from '../../site.config.js'
+  export let title
+  export let description
+  export let lang = 'en'
+  export let url = ''
+  export let img = ''
+  export let isArticle = false
+  export let created = ''
+  export let ttr
+  $: imgSrc = srcName(img, '800')
 </script>
 
 <svelte:head>

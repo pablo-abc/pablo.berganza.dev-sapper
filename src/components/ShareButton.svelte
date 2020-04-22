@@ -1,6 +1,6 @@
 <script>
-  export let href;
-  export let title;
+  export let href
+  export let title
 </script>
 
 <a

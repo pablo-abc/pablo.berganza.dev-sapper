@@ -1,7 +1,7 @@
 <script>
-  export let src;
-  export let alt;
-  export let color;
+  export let src
+  export let alt
+  export let color
 </script>
 
 <section class="ability color-{color}">

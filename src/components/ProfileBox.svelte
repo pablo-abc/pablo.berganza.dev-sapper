@@ -1,6 +1,6 @@
 <script>
-  import { lazy } from '../helpers.js';
-  export let welcome;
+  import { lazy } from '../helpers.js'
+  export let welcome
 </script>
 
 <div id=profile-box>

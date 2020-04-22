@@ -1,16 +1,16 @@
 <script>
-  import { stores, goto } from '@sapper/app';
-  import Icon from 'fa-svelte';
-  import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
-  import IconLink from './IconLink.svelte';
-  const { session, page } = stores();
-  $: lang = $session.lang;
-  $: langPath = lang === 'en' ? '' : lang + '/' ;
-  $: otherLangPath = (lang === 'en' ? 'es' + $page.path : $page.path.slice(4)) || './';
+  import { stores, goto } from '@sapper/app'
+  import Icon from 'fa-svelte'
+  import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+  import IconLink from './IconLink.svelte'
+  const { session, page } = stores()
+  $: lang = $session.lang
+  $: langPath = lang === 'en' ? '' : lang + '/'
+  $: otherLangPath = (lang === 'en' ? 'es' + $page.path : $page.path.slice(4)) || './'
   async function changeLang(e) {
     e.preventDefault()
-    if (lang === 'en') $session.lang = 'es';
-    else $session.lang = 'en';
+    if (lang === 'en') $session.lang = 'es'
+    else $session.lang = 'en'
     await goto(otherLangPath)
   }
 </script>

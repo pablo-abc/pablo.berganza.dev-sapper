@@ -1,10 +1,10 @@
 <script>
-  import ProfileBox from './ProfileBox.svelte';
-  import AbilityBoxes from './AbilityBoxes.svelte';
-  export let index;
+  import ProfileBox from './ProfileBox.svelte'
+  import AbilityBoxes from './AbilityBoxes.svelte'
+  export let index
 </script>
 
-<section class=main>
+<section>
   <section class=main-info>
     <ProfileBox welcome={index.attributes.welcome} />
   </section>

@@ -1,18 +1,17 @@
 <script>
-  import { stores, goto } from '@sapper/app';
-  import Icon from 'fa-svelte';
-  import ShareButtons from '../ShareButtons.svelte';
-  import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
-  import BlogBanner from './BlogBanner.svelte';
-  import Commento from '../Commento.svelte';
-  export let blog;
-  const { session, page } = stores();
-  let mounted = false;
-  $: lang = $session.lang;
-  $: langPath = lang === 'en' ? '' : lang + '/' ;
+  import { stores } from '@sapper/app'
+  import Icon from 'fa-svelte'
+  import ShareButtons from '../ShareButtons.svelte'
+  import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
+  import BlogBanner from './BlogBanner.svelte'
+  import Commento from '../Commento.svelte'
+  export let blog
+  const { session } = stores()
+  $: lang = $session.lang
+  $: langPath = lang === 'en' ? '' : lang + '/'
 </script>
 
-<article id=blog>
+<article>
   <header class=title>
     <h1>{blog.attributes.title}</h1>
     <h4 class=description>{blog.attributes.description}</h4>

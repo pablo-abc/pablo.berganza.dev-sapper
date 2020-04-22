@@ -1,13 +1,12 @@
 <script>
-  import Icon from 'fa-svelte';
-  import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
-  import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-  import IconLink from './IconLink.svelte';
-  import Head from './Head.svelte';
-  export let contact;
+  import Icon from 'fa-svelte'
+  import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
+  import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+  import IconLink from './IconLink.svelte'
+  export let contact
 </script>
 
-<section class=contact>
+<section>
   <header class=title>
     <h1>{contact.attributes.contactme}</h1>
   </header>

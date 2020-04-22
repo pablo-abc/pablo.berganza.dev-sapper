@@ -1,20 +1,20 @@
 <script>
-  import { stores } from '@sapper/app';
-  import Icon from 'fa-svelte';
-  import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons';
-  export let blogs;
-  export let title = 'Blog';
-  const { session } = stores();
-  $: lang = $session.lang;
-  $: langPath = lang === 'en' ? '' : lang + '/' ;
+  import { stores } from '@sapper/app'
+  import Icon from 'fa-svelte'
+  import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
+  export let blogs
+  export let title = 'Blog'
+  const { session } = stores()
+  $: lang = $session.lang
+  $: langPath = lang === 'en' ? '' : lang + '/'
 </script>
 
-<section class=blog-posts>
+<section>
   <header class=title>
     <h1>{title}</h1>
   </header>
   <section class=blog-list>
-    {#each blogs as blog}
+    {#each blogs as blog, index}
       <a class=blog-item rel="prefetch" href="{langPath}blog/{blog.slug}">
         <article>
           <h3>{blog.title}</h3>

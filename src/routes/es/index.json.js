@@ -1,8 +1,8 @@
-import getIndex from '../_index.js';
+import getIndex from '../_index.js'
 
-export async function get(req, res, next) {
-  const index = await getIndex('es');
+export async function get(req, res) {
+  const index = await getIndex('es')
   res.writeHead(200, {
     'Content-Type': 'application/json',
-  }).end(JSON.stringify(index));
+  }).end(JSON.stringify(index))
 }
