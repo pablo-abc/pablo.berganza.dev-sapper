@@ -12,7 +12,7 @@ polka() // You can also use Express
     sirv('static', { dev }),
     sapper.middleware({
       session: () => ({}),
-    })
+    }),
   )
   .listen(PORT, err => {
     if (err) console.log('error', err)

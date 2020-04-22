@@ -20,6 +20,13 @@ module.exports = {
   rules: {
     semi: ['warn', 'never'],
     quotes: ['error', 'single'],
+    'dot-location': ['warn', 'property'],
+    'guard-for-in': ['warn'],
+    'no-multi-spaces': ['warn'],
+    yoda: ['warn', 'never'],
+    camelcase: ['warn'],
+    'comma-style': ['warn'],
+    'comma-dangle': ['warn', 'always-multiline'],
   },
   settings: {
     // ...
