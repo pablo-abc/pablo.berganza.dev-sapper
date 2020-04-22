@@ -19,7 +19,7 @@ export default {
     input: config.client.input(),
     output: config.client.output(),
     plugins: [
-      eslint({
+      !dev && eslint({
         throwOnError: true,
         exclude: 'src/**/*.css',
       }),

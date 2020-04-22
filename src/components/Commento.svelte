@@ -1,12 +1,22 @@
 <script>
+  import { stores } from '@sapper/app'
   import { onMount } from 'svelte'
   export let src
   let mounted = false
+  const { session } = stores()
+  $: lang = $session.lang
   onMount(() => {
     mounted = true
   })
 </script>
 
+<label for="commento-textarea-root" class="visuallyhidden">
+  {#if lang === 'en'}
+    Comment
+  {:else}
+    Comentario
+  {/if}
+</label>
 <div id="commento"></div>
 
 {#if mounted}
@@ -14,6 +24,17 @@
 {/if}
 
 <style>
+  .visuallyhidden {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+  }
+
   div {
       border-top: 2px solid var(--color-primary-1);
       padding-top: 20px;
@@ -46,11 +67,11 @@
       color: var(--base-font-color) !important;
   }
 
-  :global(.commento-root .commento-button), :global(.commento-root .commento-avatar) {
+  div :global(.commento-button), div :global(.commento-avatar) {
       color: #FFF2F8 !important;
   }
 
-  :global(.commento-root .commento-sort-policy-buttons-container .commento-sort-policy-buttons .commento-sort-policy-button-selected) {
+  div :global(.commento-sort-policy-buttons-container .commento-sort-policy-buttons .commento-sort-policy-button-selected) {
       color: var(--color-secondary-2-3) !important;
   }
 

@@ -79,13 +79,13 @@
       display: flex;
       max-width: 720px;
       justify-content: space-between;
-      color: var(--color-primary-3);
+      color: var(--color-primary-4);
   }
 
   .tag-links {
       display: flex;
       max-width: 720px;
-      color: var(--color-primary-3);
+      color: var(--color-primary-4);
   }
 
   .tag-link {
