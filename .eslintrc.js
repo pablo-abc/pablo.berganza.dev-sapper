@@ -17,6 +17,7 @@ module.exports = {
       processor: 'svelte3/svelte3'
     }
   ],
+  ignorePatterns: ['node_modules/'],
   rules: {
     semi: ['warn', 'never'],
     quotes: ['error', 'single'],
@@ -24,12 +25,25 @@ module.exports = {
     'guard-for-in': ['warn'],
     'no-multi-spaces': ['warn'],
     yoda: ['warn', 'never'],
-    camelcase: ['warn'],
+    camelcase: ['error'],
     'comma-style': ['warn'],
     'comma-dangle': ['warn', 'always-multiline'],
-  },
-  settings: {
-    // ...
+    'block-spacing': ['warn'],
+    'keyword-spacing': ['warn'],
+    'no-trailing-spaces': ['warn'],
+    'no-unneeded-ternary': ['warn'],
+    'no-whitespace-before-property': ['warn'],
+    'object-curly-spacing': ['warn', 'always'],
+    'space-before-blocks': ['warn'],
+    'space-in-parens': ['warn'],
+    'arrow-spacing': ['warn'],
+    'no-duplicate-imports': ['error'],
+    'no-var': ['error'],
+    'prefer-const': ['warn'],
+    'no-unused-vars': ['warn', {
+      argsIgnorePattern: '^_',
+      ignoreRestSiblings: true,
+    }],
   },
   globals: {
     process: true,

@@ -1,6 +1,5 @@
 <script>
-  import { srcName } from '../../helpers.js'
-  import { lazy } from '../../helpers.js'
+  import { srcName, lazy } from '../../helpers.js'
   export let src
   export let alt
   export let title

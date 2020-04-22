@@ -1,6 +1,6 @@
 <script>
   import AbilityBox from './AbilityBox.svelte'
-  let abilities = [
+  const abilities = [
     ['https://cdn.svgporn.com/logos/javascript.svg', 'JavaScript'],
     ['https://cdn.svgporn.com/logos/typescript-icon.svg', 'TypeScript'],
     ['https://cdn.svgporn.com/logos/clojure.svg', 'Clojure'],
