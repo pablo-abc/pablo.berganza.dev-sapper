@@ -1,4 +1,5 @@
 <script>
+  import { send, receive } from '../crossfade.js'
   import { lazy } from '../helpers.js'
   export let welcome
 </script>
@@ -9,8 +10,14 @@
     src=img/profile-pic-placeholder.jpeg
     alt="Profile picture"
     use:lazy={{ src: 'img/profile-pic-400.jpeg' }}
+    in:receive={{ key: 'profile-pic' }}
+    out:send={{ key: 'profile-pic' }}
     >
-  <h3 id=profile-bubble>
+  <h3
+    id=profile-bubble
+    in:receive={{ key: 'profile-bubble' }}
+    out:send={{ key: 'profile-bubble' }}
+    >
     {welcome}
   </h3>
 </div>

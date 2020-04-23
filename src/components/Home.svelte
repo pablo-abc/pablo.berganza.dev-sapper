@@ -1,4 +1,5 @@
 <script>
+  import { send, receive } from '../crossfade.js'
   import { fade } from 'svelte/transition'
   import ProfileBox from './ProfileBox.svelte'
   import AbilityBoxes from './AbilityBoxes.svelte'
@@ -12,11 +13,19 @@
   <section class=main-info>
     <ProfileBox welcome={index.attributes.welcome} />
   </section>
-  <section class=about-me>
+  <section
+    class=about-me
+    in:receive={{ key: 'about-me' }}
+    out:send={{ key: 'about-me' }}
+    >
     <h2>{index.attributes.aboutme}</h2>
     {@html index.html}
   </section>
-  <section class=abilities>
+  <section
+    class=abilities
+    in:receive={{ key: 'abilities' }}
+    out:send={{ key: 'abilities' }}
+    >
     <h2>{index.attributes.myabilities}</h2>
     <AbilityBoxes />
   </section>
