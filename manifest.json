@@ -1,8 +1,7 @@
 {
- "name": "Pablo Berganza",
+  "name": "Pablo Berganza - Personal Site",
   "background_color": "#E34495",
   "theme_color": "#E34495",
-  "name": "pablo.berganza.dev",
   "short_name": "pablo.berganza.dev",
   "display": "minimal-ui",
   "start_url": "/",
