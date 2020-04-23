@@ -1,5 +1,5 @@
 <script>
-  import { fly } from 'svelte/transition'
+  import { fade } from 'svelte/transition'
   import ProfileBox from './ProfileBox.svelte'
   import AbilityBoxes from './AbilityBoxes.svelte'
   export let index
@@ -7,7 +7,7 @@
 
 <section
   class=main
-  transition:fly={{ duration: 200, y: 100 }}
+  transition:fade={{ duration: 200 }}
   >
   <section class=main-info>
     <ProfileBox welcome={index.attributes.welcome} />

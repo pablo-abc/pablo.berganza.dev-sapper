@@ -1,4 +1,5 @@
 <script>
+  import { flip } from 'svelte/animate'
   import { send, receive } from '../crossfade.js'
   import { stores, goto } from '@sapper/app'
   import Icon from 'fa-svelte'
@@ -16,6 +17,26 @@
   }
   $: isBlog = /^((\/)|(\/es\/))blog\/?$/.test($page.path)
   $: isContact = /^((\/)|(\/es\/))contact\/?$/.test($page.path)
+  $: blogNav = {
+    show: !isBlog,
+    key: 'blog',
+    text: 'Blog',
+    href: `${langPath}blog`,
+    attributes: {
+      id: 'blog-nav',
+      rel: 'prefetch',
+    },
+  }
+  $: contactNav = {
+    show: !isContact,
+    key: 'contact',
+    text: lang === 'en' ? 'Contact Me' : 'Contáctame',
+    href: `${langPath}contact`,
+    attributes: {
+      id: 'contact-nav',
+    },
+  }
+  $: navItems = [blogNav, contactNav]
 </script>
 
 <nav>
@@ -25,30 +46,21 @@
       <span>Berganza</span>
     </a>
     <div class=nav-items>
-      {#if !isBlog}
-        <a id=blog-nav rel=prefetch class=nav-item href="{langPath}blog">
+      {#each navItems.filter(ni => ni.show) as navItem (navItem.key)}
+        <a
+          {...navItem.attributes}
+          href={navItem.href}
+          class=nav-item
+          animate:flip={{ duration: 200 }}
+          >
           <span
-            in:receive={{ key: 'blog' }}
-            out:send={{ key: 'blog' }}
+            in:receive={{ key: navItem.key, delay: 200 }}
+            out:send={{ key: navItem.key }}
             >
-            Blog
+            {navItem.text}
           </span>
         </a>
-      {/if}
-      {#if !isContact}
-        <a id=contact-nav class=nav-item href="{langPath}contact">
-          <span
-            in:receive={{ key: 'contact' }}
-            out:send={{ key: 'contact' }}
-            >
-            {#if lang === 'es'}
-              Contáctame
-            {:else}
-              Contact Me
-            {/if}
-          </span>
-        </a>
-      {/if}
+      {/each}
     </div>
   </div>
   <div class=right-nav>
@@ -77,6 +89,12 @@
 <style>
   nav div {
       display: inline;
+  }
+
+  .nav-item {
+      position: relative;
+      top: 0px;
+      display: inline-block;
   }
 
   .left-nav {
@@ -136,6 +154,6 @@
   }
 
   #blog-nav {
-      margin-right: 8px;
+      margin-right: 10px;
   }
 </style>
