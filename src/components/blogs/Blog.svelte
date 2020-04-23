@@ -145,10 +145,10 @@
   .content :global(blockquote) {
       padding: 8px 10px;
       margin: 8px inherit;
-      background-color: lighten(var(--color-primary-1,) 20%);
+      background-color: #FFF7FB;
       border-left: 5px solid var(--color-primary-2);
       border-radius: 10px;
-      color: #5A5A5A;
+      color: #694D5D;
 
   }
 

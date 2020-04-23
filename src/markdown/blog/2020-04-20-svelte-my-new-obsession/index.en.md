@@ -6,7 +6,6 @@ bannertitle: Thessaloniki, Greece
 tags:
     - svelte
     - javascript
-    - static sites
     - programming
 ---
 

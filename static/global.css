@@ -85,7 +85,6 @@ p, ul {
 }
 
 header.title {
-    background-color: var(--background-color);
     text-align: center;
     width: 100%;
     margin: 0 0 16px 0;

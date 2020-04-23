@@ -6,7 +6,6 @@ bannertitle: Salónica, Grecia
 tags:
     - svelte
     - javascript
-    - sitios estáticos
     - programación
 ---
 

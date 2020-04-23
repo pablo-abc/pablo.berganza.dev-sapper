@@ -36,7 +36,7 @@
       id: 'contact-nav',
     },
   }
-  $: navItems = [blogNav, contactNav]
+  $: navItems = [blogNav, contactNav].filter(ni => ni.show)
 </script>
 
 <nav>
@@ -46,7 +46,7 @@
       <span>Berganza</span>
     </a>
     <div class=nav-items>
-      {#each navItems.filter(ni => ni.show) as navItem (navItem.key)}
+      {#each navItems as navItem (navItem.key)}
         <a
           {...navItem.attributes}
           href={navItem.href}
@@ -153,7 +153,7 @@
       justify-content: space-between;
   }
 
-  #blog-nav {
+  .nav-item:not(:last-child) {
       margin-right: 10px;
   }
 </style>

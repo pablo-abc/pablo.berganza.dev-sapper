@@ -7,10 +7,18 @@ import { terser } from 'rollup-plugin-terser'
 import config from 'sapper/config/rollup.js'
 import pkg from './package.json'
 import { eslint } from 'rollup-plugin-eslint'
+import sveltePreprocessPostcss from 'svelte-preprocess-postcss'
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
+
+const stylePreprocessor = sveltePreprocessPostcss({
+  useConfigFile: false,
+  plugins: [
+    require('postcss-preset-env')(),
+  ],
+})
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning)
 
@@ -31,6 +39,9 @@ export default {
 	dev,
 	hydratable: true,
 	emitCss: true,
+        preprocess: {
+          style: stylePreprocessor,
+        },
       }),
       resolve({
 	browser: true,
@@ -74,6 +85,9 @@ export default {
       svelte({
 	generate: 'ssr',
 	dev,
+        preprocess: {
+          style: stylePreprocessor,
+        },
       }),
       resolve({
 	dedupe: ['svelte'],
