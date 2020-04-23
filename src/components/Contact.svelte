@@ -67,13 +67,13 @@
   }
 
   .contact-info {
-      margin: 0 auto;
+      margin: 0 10px;
       max-width: 720px;
       font-weight: 550;
   }
 
-  @media only screen and (min-width: 820px) {
-      section {
+  @media only screen and (min-width: 740px) {
+      .contact-info {
           margin: 0 auto;
       }
   }
