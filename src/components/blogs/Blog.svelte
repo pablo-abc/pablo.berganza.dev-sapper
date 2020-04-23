@@ -23,11 +23,13 @@
         {blog.attributes.title}
       </span>
     </h1>
-    <h4
-      class=description
-      in:fade={{ delay: 200 }} out:fade={{ duration: 200 }}
-      >
-      {blog.attributes.description}
+    <h4 class=description>
+      <span
+        in:receive={{ key: blog.slug + 'description' }}
+        out:send={{ key: blog.slug + 'description' }}
+        >
+        {blog.attributes.description}
+      </span>
     </h4>
   </header>
   <div in:fade={{ delay: 200 }} out:fade={{ duration: 200 }}>

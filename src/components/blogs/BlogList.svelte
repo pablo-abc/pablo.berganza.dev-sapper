@@ -45,11 +45,13 @@
               {blog.created}
             </span>
           </p>
-          <p
-            transition:fade={{ duration: 200 }}
-            class=description
-            >
-            {blog.description}
+          <p class=description>
+            <span
+              in:receive={{ key: blog.slug + 'description' }}
+              out:send={{ key: blog.slug + 'description' }}
+              >
+              {blog.description}
+            </span>
           </p>
         </article>
       </a>
