@@ -15,11 +15,13 @@
 
 <article class=main>
   <header class=title>
-    <h1
-      in:receive={{ key: blog.slug + 'title' }}
-      out:send={{ key: blog.slug + 'title' }}
-      >
-      {blog.attributes.title}
+    <h1>
+      <span
+        in:receive={{ key: blog.slug + 'title' }}
+        out:send={{ key: blog.slug + 'title' }}
+        >
+        {blog.attributes.title}
+      </span>
     </h1>
     <h4
       class=description
@@ -73,6 +75,10 @@
 </article>
 
 <style>
+  span {
+      display: inline-block;
+  }
+
   header {
       margin: 0 0 32px 0;
       min-height: 110px;

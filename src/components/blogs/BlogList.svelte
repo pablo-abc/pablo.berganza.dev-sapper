@@ -24,11 +24,13 @@
     {#each blogs as blog, index}
       <a class=blog-item rel="prefetch" href="{langPath}blog/{blog.slug}">
         <article>
-          <h2
-            in:receive={{ key: blog.slug + 'title' }}
-            out:send={{ key: blog.slug + 'title' }}
-            >
-            {blog.title}
+          <h2>
+            <span
+              in:receive={{ key: blog.slug + 'title' }}
+              out:send={{ key: blog.slug + 'title' }}
+              >
+              {blog.title}
+            </span>
           </h2>
           <p class=ttr-created
              transition:fade={{ duration: 200 }}
@@ -56,6 +58,10 @@
 </section>
 
 <style>
+  span {
+      display: inline-block;
+  }
+
   h1 {
       color: var(--color-primary-0);
       text-align: center;
