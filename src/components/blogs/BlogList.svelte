@@ -12,11 +12,15 @@
 </script>
 
 <section class=main>
-  <header
-    class=title
-    transition:fade={{ duration: 200 }}
-    >
-    <h1>{title}</h1>
+  <header class=title>
+    <h1>
+      <span
+        in:receive={{ key: 'blog' }}
+        out:send={{ key: 'blog' }}
+        >
+        {title}
+      </span>
+    </h1>
   </header>
   <section
     class=blog-list

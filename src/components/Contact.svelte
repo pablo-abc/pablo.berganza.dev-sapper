@@ -1,4 +1,5 @@
 <script>
+  import { send, receive } from '../crossfade.js'
   import { fade } from 'svelte/transition'
   import Icon from 'fa-svelte'
   import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -7,14 +8,21 @@
   export let contact
 </script>
 
-<section
-  class=main
-  transition:fade={{ duration: 200 }}
-  >
+<section class=main>
   <header class=title>
-    <h1>{contact.attributes.contactme}</h1>
+    <h1>
+      <span
+        in:receive={{ key: 'contact' }}
+        out:send={{ key: 'contact' }}
+        >
+        {contact.attributes.contactme}
+      </span>
+    </h1>
   </header>
-  <section class=contact-info>
+  <section
+    class=contact-info
+    transition:fade={{ duration: 200 }}
+    >
     {@html contact.html}
     <dl>
       <dt>
@@ -54,6 +62,10 @@
 </section>
 
 <style>
+  span {
+      display: inline-block;
+  }
+
   .contact-info {
       margin: 0 auto;
       max-width: 720px;

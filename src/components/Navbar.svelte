@@ -1,4 +1,5 @@
 <script>
+  import { send, receive } from '../crossfade.js'
   import { stores, goto } from '@sapper/app'
   import Icon from 'fa-svelte'
   import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
@@ -13,6 +14,8 @@
     else $session.lang = 'en'
     await goto(otherLangPath)
   }
+  $: isBlog = /^((\/)|(\/es\/))blog\/?$/.test($page.path)
+  $: isContact = /^((\/)|(\/es\/))contact\/?$/.test($page.path)
 </script>
 
 <nav>
@@ -22,17 +25,30 @@
       <span>Berganza</span>
     </a>
     <div class=nav-items>
-      <a id=blog-nav rel=prefetch class=nav-item href="{langPath}blog">
-        Blog
-      </a>
-      |
-      <a id=contact-nav class=nav-item href="{langPath}contact">
-        {#if lang === 'es'}
-          Contáctame
-        {:else}
-          Contact Me
-        {/if}
-      </a>
+      {#if !isBlog}
+        <a id=blog-nav rel=prefetch class=nav-item href="{langPath}blog">
+          <span
+            in:receive={{ key: 'blog' }}
+            out:send={{ key: 'blog' }}
+            >
+            Blog
+          </span>
+        </a>
+      {/if}
+      {#if !isContact}
+        <a id=contact-nav class=nav-item href="{langPath}contact">
+          <span
+            in:receive={{ key: 'contact' }}
+            out:send={{ key: 'contact' }}
+            >
+            {#if lang === 'es'}
+              Contáctame
+            {:else}
+              Contact Me
+            {/if}
+          </span>
+        </a>
+      {/if}
     </div>
   </div>
   <div class=right-nav>
@@ -117,5 +133,9 @@
       align-items: center;
       line-height: 1.3;
       justify-content: space-between;
+  }
+
+  #blog-nav {
+      margin-right: 8px;
   }
 </style>
