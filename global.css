@@ -33,6 +33,11 @@ a {
     text-decoration: none;
 }
 
+.main {
+    position: absolute;
+    width: 100%;
+}
+
 body {
     font-family: 'Overpass', 'Helvetica Neue', Verdana, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
