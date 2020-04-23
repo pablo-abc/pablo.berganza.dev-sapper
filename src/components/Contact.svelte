@@ -1,4 +1,5 @@
 <script>
+  import { fade } from 'svelte/transition'
   import Icon from 'fa-svelte'
   import { faGithub, faInstagram, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons'
   import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
@@ -6,11 +7,14 @@
   export let contact
 </script>
 
-<section>
+<section
+  class=main
+  transition:fade={{ duration: 200 }}
+  >
   <header class=title>
     <h1>{contact.attributes.contactme}</h1>
   </header>
-  <section>
+  <section class=contact-info>
     {@html contact.html}
     <dl>
       <dt>
@@ -50,11 +54,10 @@
 </section>
 
 <style>
-  section {
-      margin: 0 10px;
+  .contact-info {
+      margin: 0 auto;
       max-width: 720px;
       font-weight: 550;
-
   }
 
   @media only screen and (min-width: 820px) {

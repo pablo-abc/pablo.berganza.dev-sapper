@@ -1,5 +1,7 @@
 <script>
   import { stores } from '@sapper/app'
+  import { send, receive } from '../../crossfade.js'
+  import { fade } from 'svelte/transition'
   import Icon from 'fa-svelte'
   import ShareButtons from '../ShareButtons.svelte'
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
@@ -11,48 +13,63 @@
   $: langPath = lang === 'en' ? '' : lang + '/'
 </script>
 
-<article>
+<article class=main>
   <header class=title>
-    <h1>{blog.attributes.title}</h1>
-    <h4 class=description>{blog.attributes.description}</h4>
+    <h1
+      in:receive={{ key: blog.slug + 'title' }}
+      out:send={{ key: blog.slug + 'title' }}
+      >
+      {blog.attributes.title}
+    </h1>
+    <h4
+      class=description
+      in:fade={{ delay: 200 }} out:fade={{ duration: 200 }}
+      >
+      {blog.attributes.description}
+    </h4>
   </header>
-  {#if blog.attributes.banner}
-    <BlogBanner
-      src={blog.attributes.banner}
-      alt={blog.attributes.bannertitle}
-      title={blog.attributes.bannertitle}
-      />
-  {/if}
-  <div class=ttr-created>
-    <span class=ttr>
-      <Icon icon={faClock} />
-      {blog.ttr}
-      min
-    </span>
-    <span class=created>
-      <Icon icon={faCalendarAlt} />
-      {blog.attributes.created}
-    </span>
+  <div in:fade={{ delay: 200 }} out:fade={{ duration: 200 }}>
+    {#if blog.attributes.banner}
+      <BlogBanner
+        src={blog.attributes.banner}
+        alt={blog.attributes.bannertitle}
+        title={blog.attributes.bannertitle}
+        />
+      {/if}
+      <div
+        class=ttr-created
+        transition:fade={{ duration: 200 }}
+        >
+        <span class=ttr>
+          <Icon icon={faClock} />
+          {blog.ttr}
+          min
+        </span>
+        <span class=created>
+          <Icon icon={faCalendarAlt} />
+          {blog.attributes.created}
+        </span>
+      </div>
+      <div class=tag-links>
+        Tags:
+        {#each blog.attributes.tags as tag}
+          <a class=tag-link href="{langPath}blog/tags/{tag}">
+            {tag}
+          </a>
+        {/each}
+      </div>
+      <section class='content'>
+        {@html blog.html}
+      </section>
+      <footer>
+        <ShareButtons {blog} />
+        <Commento
+          src={process.env.NODE_ENV === 'production'
+          ? 'https://cdn.commento.io/js/commento.js'
+          : 'http://localhost:8080/js/commento.js'}
+          />
+      </footer>
   </div>
-  <div class=tag-links>
-    Tags:
-    {#each blog.attributes.tags as tag}
-      <a class=tag-link href="{langPath}blog/tags/{tag}">
-        {tag}
-      </a>
-    {/each}
-  </div>
-  <section class='content'>
-    {@html blog.html}
-  </section>
-  <footer>
-    <ShareButtons {blog} />
-    <Commento
-      src={process.env.NODE_ENV === 'production'
-      ? 'https://cdn.commento.io/js/commento.js'
-      : 'http://localhost:8080/js/commento.js'}
-      />
-  </footer>
 </article>
 
 <style>

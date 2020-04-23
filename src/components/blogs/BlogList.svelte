@@ -1,4 +1,6 @@
 <script>
+  import { send, receive } from '../../crossfade.js'
+  import { fade } from 'svelte/transition'
   import { stores } from '@sapper/app'
   import Icon from 'fa-svelte'
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
@@ -9,16 +11,28 @@
   $: langPath = lang === 'en' ? '' : lang + '/'
 </script>
 
-<section>
-  <header class=title>
+<section class=main>
+  <header
+    class=title
+    transition:fade={{ duration: 200 }}
+    >
     <h1>{title}</h1>
   </header>
-  <section class=blog-list>
+  <section
+    class=blog-list
+    >
     {#each blogs as blog, index}
       <a class=blog-item rel="prefetch" href="{langPath}blog/{blog.slug}">
         <article>
-          <h3>{blog.title}</h3>
-          <p class=ttr-created>
+          <h2
+            in:receive={{ key: blog.slug + 'title' }}
+            out:send={{ key: blog.slug + 'title' }}
+            >
+            {blog.title}
+          </h2>
+          <p class=ttr-created
+             transition:fade={{ duration: 200 }}
+             >
             <span class=ttr>
               <Icon icon={faClock} />
               {blog.ttr}
@@ -29,7 +43,12 @@
               {blog.created}
             </span>
           </p>
-          <p class=description>{blog.description}</p>
+          <p
+            transition:fade={{ duration: 200 }}
+            class=description
+            >
+            {blog.description}
+          </p>
         </article>
       </a>
     {/each}
@@ -82,9 +101,10 @@
       color: var(--base-font-color);
   }
 
-  h3 {
+  h2 {
       color: var(--color-primary-0);
       margin: 0;
+      font-size: 1.3em;
   }
 
   .blog-item:hover, .blog-item:active {

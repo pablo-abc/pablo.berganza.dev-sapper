@@ -8,7 +8,7 @@
   export let img = ''
   export let isArticle = false
   export let created = ''
-  export let ttr
+  export let ttr = undefined
   $: imgSrc = srcName(img, '800')
 </script>
 
