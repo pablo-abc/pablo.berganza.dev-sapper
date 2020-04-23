@@ -8,7 +8,7 @@
 
 <section
   class=main
-  transition:fade={{ duration: 200 }}
+  transition:fade={{ duration: 400 }}
   >
   <section class=main-info>
     <ProfileBox welcome={index.attributes.welcome} />

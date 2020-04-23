@@ -32,7 +32,7 @@
       </span>
     </h4>
   </header>
-  <div in:fade={{ delay: 200 }} out:fade={{ duration: 200 }}>
+  <div transition:fade={{ duration: 400 }}>
     {#if blog.attributes.banner}
       <BlogBanner
         src={blog.attributes.banner}
@@ -40,10 +40,7 @@
         title={blog.attributes.bannertitle}
         />
       {/if}
-      <div
-        class=ttr-created
-        transition:fade={{ duration: 200 }}
-        >
+      <div class=ttr-created>
         <span class=ttr>
           <Icon icon={faClock} />
           {blog.ttr}

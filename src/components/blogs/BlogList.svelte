@@ -6,6 +6,7 @@
   import { faClock, faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
   export let blogs
   export let title = 'Blog'
+  let nohover = false
   const { session } = stores()
   $: lang = $session.lang
   $: langPath = lang === 'en' ? '' : lang + '/'
@@ -26,7 +27,13 @@
     class=blog-list
     >
     {#each blogs as blog, index}
-      <a class=blog-item rel="prefetch" href="{langPath}blog/{blog.slug}">
+      <a
+        class=blog-item
+        class:nohover
+        rel="prefetch"
+        href="{langPath}blog/{blog.slug}"
+        on:click="{() => nohover = true}"
+        >
         <article>
           <h2>
             <span
@@ -37,7 +44,7 @@
             </span>
           </h2>
           <p class=ttr-created
-             transition:fade={{ duration: 200 }}
+             transition:fade={{ duration: 400 }}
              >
             <span class=ttr>
               <Icon icon={faClock} />
@@ -119,7 +126,7 @@
       font-size: 1.3em;
   }
 
-  .blog-item:hover, .blog-item:active {
+  .blog-item:not(.nohover):hover, .blog-item:active {
       background-color: #ECDFFF;
       text-decoration: none;
   }

@@ -21,7 +21,7 @@
   </header>
   <section
     class=contact-info
-    transition:fade={{ duration: 200 }}
+    transition:fade={{ duration: 400 }}
     >
     {@html contact.html}
     <dl>

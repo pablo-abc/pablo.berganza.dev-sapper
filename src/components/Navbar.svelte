@@ -54,7 +54,7 @@
           animate:flip={{ duration: 200 }}
           >
           <span
-            in:receive={{ key: navItem.key, delay: 200 }}
+            in:receive={{ key: navItem.key, delay: 400 }}
             out:send={{ key: navItem.key }}
             >
             {navItem.text}
