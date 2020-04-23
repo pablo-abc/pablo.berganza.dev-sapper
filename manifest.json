@@ -1,10 +1,6 @@
 {
   "name": "Pablo Berganza - Personal Site",
-  "background_color": "#E34495",
-  "theme_color": "#E34495",
   "short_name": "pablo.berganza.dev",
-  "display": "minimal-ui",
-  "start_url": "/",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
