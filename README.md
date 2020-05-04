@@ -12,3 +12,11 @@ To run it locally:
 * Install all dependencies with `yarn`
 * Start the dev server with `yarn dev`
 * Generate a static build with `yarn export`
+
+# License
+
+The content of the site is owned by me and cannot be copied as your own. (Of course you can link to it).
+
+The site's code itself has a license of GPL-3.0 since I would like people to share their modifications to it (and also encourage you to be original on your site).
+
+Code snippets shown in my posts can be considered MIT.
