@@ -15,6 +15,6 @@
 <Head
   title="Home | Pablo Berganza"
   description="Personal site and blog for Pablo Berganza"
-  />
+/>
 
 <Home {index} />
