@@ -72,7 +72,7 @@ function Component() {
 }
 ```
 
-Para pasa múltiples argumentes a la función `fetcher`, el `useSWR` permite pasar un arreglo como primer argumento.
+Para pasar múltiples argumentos a la función `fetcher`, `useSWR` permite pasar un arreglo como primer argumento.
 
 ```javascript
 const gqlQuery = `...`
