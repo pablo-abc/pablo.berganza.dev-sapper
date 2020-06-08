@@ -3,7 +3,6 @@ title: En realidad no necesitas Apollo
 description: ¿Proyecto hobby? ¿Aprendiendo GraphQL? Tal vez te estás complicando con Apollo
 banner: img/blog-pics/2020-06-08.jpg
 bannertitle: Breslavia, Polonia
-draft: true
 tags:
   - javascript
   - graphql
@@ -19,7 +18,7 @@ Me había motivado a probar crear algo del lado del front-end con este nuevo con
 
 En algún momento el año pasado encontré [urql](https://formidable.com/open-source/urql/), que busca ser una alternativa más liviana a Apollo. Y fue increíble. Un API más simple, y menos utilidades, significaba que requería menos tiempo leyendo la documentación y más tiempo construyendo lo que necesitaba. Pero siempre se sentía algo pesado para mis casos de uso. Aun así, en estos momentos escogería urql sobre Apollo para un proyecto serio, ya que si siento que Apollo intenta hacer demasiado para mi gusto.
 
-Actualmente no estamos desarrollando ningún proyecto que utilice GraphQL en mi empresa, pero he seguido utilizándolo para mis proyectos personales. Sin embargo, durante ese tiempo no podía evitar seguir sintiendo que el punto de entrada para cualquier desarrollador front-end que quisiera aprenderlo era algo alto. Si buscas en DuckDuckGo (o Google) `react graphql`, tus primeros resultados serán Apollo y [howtographql.com](https://www.howtographql.com). Si ingresas a este último, verás que Apollo y urql son listados como la _opción para principiantes_. Siento que esto es un punto de entrada artificialmente alto para un principiante.
+Actualmente no he trabajado profesionalmente en ningún proyecto que utilice GraphQL, pero he seguido utilizándolo para mis proyectos personales. Sin embargo, durante ese tiempo no podía evitar seguir sintiendo que el punto de entrada era algo alto para cualquier desarrollador front-end que quisiera aprenderlo. Si buscas en DuckDuckGo (o Google) `react graphql`, tus primeros resultados serán Apollo y [howtographql.com](https://www.howtographql.com). Si ingresas a este último, verás que Apollo y urql son listados como la _opción para principiantes_. Siento que esto es un punto de entrada artificialmente alto para un principiante.
 
 ## ¿Cuál es la alternativa?
 
@@ -41,7 +40,7 @@ fetch(`${API}/graphql`, {
 Puedes transformar esto en una función más reutilizable así:
 
 ```javascript
-async function gqlFetch(query, variables) {
+async function gqlFetcher(query, variables) {
   const { data, errors } = await fetch(`${API}/graphql`, {
     method: 'post',
     headers: { 'content-type': 'application/json' },

@@ -3,7 +3,6 @@ title: "You don't really need Apollo"
 description: Small project? Learning GraphQL? Apollo might be an overkill
 banner: img/blog-pics/2020-06-08.jpg
 bannertitle: Wroclaw, Poland
-draft: true
 tags:
   - javascript
   - graphql
@@ -11,15 +10,15 @@ tags:
   - programming
 ---
 
-The first time I tried [GraphQL](https://graphql.org) was when I would still have considered myself as just a back-end developer. About two years ago I gave myself the opportunity to learn it thanks to [NestJS](https://nestjs.com)'s support for it and I totally felt in love with it. The fact that it's basically self-documenting and the fact that you can ask for exactly the data you one with just one request made me feel that working with a GraphQL API as a front-end developer would feel really enjoyable.
+The first time I tried [GraphQL](https://graphql.org) was when I would still have considered myself as just a back-end developer. About two years ago I gave myself the opportunity to learn it thanks to [NestJS](https://nestjs.com)'s support for it and I totally felt in love with it. The fact that it's basically self-documenting and the fact that you can ask for exactly the data you want with just one request made me feel that working with a GraphQL API as a front-end developer would feel really enjoyable.
 
 ## Road to front-end GraphQL
 
-I wanted to try to make something on the front-end side with this new knowledge, to get a better feel of it. By that time I was still learning the ropes on front-end with [React](https://reactjs.org) (last time I did some front-end work, jQuery was the thing to use). So, naturally, I duckduckgo'ed `graphql react` and the first thing I found was [Apollo](https://www.apollographql.com). Apollo is a great tool that offers many features; you can even manage your whole application's state with it. But it did feel a bit _heavy_ for someone who's just trying to learn how to use GraphQL, or for any small project in that sense. I will admit that it was really naive of me to think this, but at that time I really thought: _woah, so GraphQL is really only suitable for pretty big apps_. Regardless I kept on doing my experiments with Apollo. As expected I spent most of the time learning how to use Apollo, which is not bad _per se_, but of course it would feel daunting for anyone learning.
+I wanted to try to make something on the front-end side with this new knowledge, to get a better feel of it. By that time I was still learning the ropes on front-end with [React](https://reactjs.org) (last time I did some front-end work, jQuery was the thing to use). So, naturally, I duckduckgo'ed `graphql react` and the first thing I found was [Apollo](https://www.apollographql.com). Apollo is a great tool that offers many features; you can even manage your whole application's state with it. But it did feel a bit _heavy_ for someone who's just trying to learn how to use GraphQL, or for any small project in that sense. I will admit that it was really naive of me to think this, but at that time I really thought: _woah, so GraphQL is really only suitable for pretty big apps_. Regardless, I kept on doing my experiments with Apollo. As I suspected I spent a lot of my time learning how to use Apollo, which is not bad _per se_, but of course it would feel daunting for anyone learning.
 
 Sometime about last year I found [urql](https://formidable.com/open-source/urql/) which aims to be a lighter alternative to Apollo. I found this really appealing. And it was great. A simpler API and fewer features meant less time spent on the documentation and more time to actually build something with it. But it still felt pretty heavy for my use cases. Although right now I would probably choose urql over Apollo for a serious project, since I do feel Apollo tries to do too much for my taste.
 
-Even though we don't currently have any projects with GraphQL with my current employer, I've kept on using it for my personal projects. Still, I kept on feeling that the entry point for any front-end developer learning it was quite high. If you duckduckgo (or google) `react graphql` your top results will be Apollo and [howtographql.com](https://www.howtographql.com). If you go to the latter, you'll see that both Apollo and urql are listed as the _beginner's choice_. This I feel is an artificially high entry point for a beginner.
+Even though I haven't worked professionally with GraphQL yet, I've kept on using it for my personal projects. Still, I kept on feeling that the entry point for any front-end developer learning it was quite high. If you duckduckgo (or google) `react graphql` your top results will be Apollo and [howtographql.com](https://www.howtographql.com). If you go to the latter, you'll see that both Apollo and urql are listed as the _beginner's choice_. This I feel is an artificially high entry point for a beginner.
 
 ## What's the alternative?
 
@@ -41,7 +40,7 @@ fetch(`${API}/graphql`, {
 You can turn this into a more reusable function with something like this:
 
 ```javascript
-async function gqlFetch(query, variables) {
+async function gqlFetcher(query, variables) {
   const { data, errors } = await fetch(`${API}/graphql`, {
     method: 'post',
     headers: { 'content-type': 'application/json' },
