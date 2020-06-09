@@ -3,8 +3,16 @@
   import Navbar from '../components/Navbar.svelte'
   export let segment
   const { session } = stores()
+
   if (segment === 'es') $session.lang = 'es'
   else $session.lang = 'en'
+
+  function assignLang(lang) {
+    if (!process.browser) return
+    document.documentElement.lang = lang
+  }
+
+  $: assignLang($session.lang)
 </script>
 
 <header>
