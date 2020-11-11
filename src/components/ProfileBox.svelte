@@ -8,7 +8,7 @@
   <img
     id=profile-pic
     src=img/profile-pic-placeholder.jpeg
-    alt="Profile picture"
+    alt="Me"
     use:lazy={{ src: 'img/profile-pic-400.jpeg' }}
     in:receive={{ key: 'profile-pic' }}
     out:send={{ key: 'profile-pic' }}

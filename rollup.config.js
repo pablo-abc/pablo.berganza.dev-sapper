@@ -7,6 +7,7 @@ import { terser } from 'rollup-plugin-terser'
 import config from 'sapper/config/rollup.js'
 import pkg from './package.json'
 import sveltePreprocessPostcss from 'svelte-preprocess-postcss'
+import { mdsvex } from 'mdsvex'
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -35,9 +36,17 @@ export default {
         dev,
         hydratable: true,
         emitCss: true,
-        preprocess: {
-          style: stylePreprocessor,
-        },
+        extensions: ['.svelte', '.svx'],
+        preprocess: [
+          {
+            style: stylePreprocessor,
+          },
+          mdsvex({
+            layout: {
+              blog: './src/components/blogs/BlogLayout.svelte',
+            },
+          }),
+        ],
       }),
       resolve({
         browser: true,
@@ -89,9 +98,17 @@ export default {
       svelte({
         generate: 'ssr',
         dev,
-        preprocess: {
-          style: stylePreprocessor,
-        },
+        extensions: ['.svelte', '.svx'],
+        preprocess: [
+          {
+            style: stylePreprocessor,
+          },
+          mdsvex({
+            layout: {
+              blog: './src/components/blogs/BlogLayout.svelte',
+            },
+          }),
+        ],
       }),
       resolve({
         dedupe: ['svelte'],

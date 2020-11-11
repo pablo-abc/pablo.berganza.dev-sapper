@@ -26,7 +26,7 @@
   <section
     class=blog-list
     >
-    {#each blogs as blog, index}
+    {#each blogs as blog (blog.slug)}
       <a
         class=blog-item
         class:nohover
