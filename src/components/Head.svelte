@@ -51,4 +51,18 @@
     <meta name="twitter:data2" value="Pablo Berganza" />
   {/if}
   <title>{title}</title>
+  {#if isArticle}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org/",
+        "@type": "BlogPosting",
+        "isFamilyFriendly": "true",
+        "author": {
+          "@type": "Person",
+          "name": "Pablo Berganza",
+          "url": "https://pablo.berganza.dev"
+        }
+      }
+    </script>
+  {/if}
 </svelte:head>

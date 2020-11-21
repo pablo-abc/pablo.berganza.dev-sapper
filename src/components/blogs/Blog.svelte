@@ -13,12 +13,13 @@
   $: langPath = lang === 'en' ? '' : lang + '/'
 </script>
 
-<article class=main>
+<article itemscope itemtype="https://schema.org/BlogPosting" class=main>
   <header class=title>
     <h1>
       <span
         in:receive={{ key: blog.slug + 'title' }}
         out:send={{ key: blog.slug + 'title' }}
+        itemprop="headline"
         >
         {blog.attributes.title}
       </span>
@@ -27,6 +28,7 @@
       <span
         in:receive={{ key: blog.slug + 'description' }}
         out:send={{ key: blog.slug + 'description' }}
+        itemprop="alternativeHeadline"
         >
         {blog.attributes.description}
       </span>
@@ -48,7 +50,7 @@
         </span>
         <span class=created>
           <Icon icon={faCalendarAlt} />
-          {blog.attributes.created}
+          <span itemprop="dateCreated">{blog.attributes.created}</span>
         </span>
       </div>
       <div class=tag-links>

@@ -12,6 +12,7 @@
      {alt}
      {title}
      use:lazy={{ src: fullSizeSrc }}
+     itemprop="image"
      >
 
 <style>

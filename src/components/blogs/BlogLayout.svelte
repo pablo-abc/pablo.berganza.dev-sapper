@@ -48,13 +48,14 @@
   ttr={ttr}
   />
 
-<article class=main>
+<article itemscope itemtype="htttps://schema.org/BlogPosting" class=main>
   {#if title}
     <header class=title>
       <h1>
         <span
           in:receive={{ key: slug + 'title' }}
           out:send={{ key: slug + 'title' }}
+          itemprop="headline"
           >
           {title}
         </span>
@@ -64,6 +65,7 @@
           <span
             in:receive={{ key: slug + 'description' }}
             out:send={{ key: slug + 'description' }}
+            itemprop="alternativeHeadline"
             >
             {description}
           </span>
@@ -89,7 +91,7 @@
         </span>
         <span class=created>
           <Icon icon={faCalendarAlt} />
-          {created}
+          <span itemprop="dateCreated">{created}</span>
         </span>
       </div>
       <div class=tag-links>
