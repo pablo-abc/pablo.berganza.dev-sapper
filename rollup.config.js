@@ -19,8 +19,10 @@ const stylePreprocessor = sveltePreprocessPostcss({
 })
 
 const onwarn = (warning, onwarn) =>
+  (warning.code === 'MISSING_EXPORT' && /'preload'/.test(warning.message)) ||
   (warning.code === 'CIRCULAR_DEPENDENCY' &&
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
+  warning.code === 'THIS_IS_UNDEFINED' ||
   onwarn(warning)
 
 export default {
@@ -84,6 +86,7 @@ export default {
           module: true,
         }),
     ],
+    preserveEntrySignatures: false,
     onwarn,
   },
 
@@ -99,6 +102,7 @@ export default {
         generate: 'ssr',
         dev,
         extensions: ['.svelte', '.svx'],
+        hydratable: true,
         preprocess: [
           {
             style: stylePreprocessor,
@@ -119,6 +123,7 @@ export default {
       require('module').builtinModules ||
         Object.keys(process.binding('natives')),
     ),
+    preserveEntrySignatures: 'strict',
     onwarn,
   },
   // serviceworker: {
@@ -134,6 +139,7 @@ export default {
   //     !dev && terser()
   //   ],
 
+  //   preserveEntrySignatures: 'false',
   //   onwarn,
   // }
 }
