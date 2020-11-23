@@ -26,7 +26,9 @@
       "author": {
         "@type": "Person",
         "name": "Pablo Berganza",
-        "url": "https://pablo.berganza.dev"
+        "url": "https://pablo.berganza.dev",
+        "email": "pablo@berganza.dev",
+        "jobTitle": "Software Engineer"
       }
     }`
 
