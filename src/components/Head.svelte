@@ -17,7 +17,7 @@
     const jsonLd = `{
       "@context": "https://schema.org/",
       "@type": "BlogPosting",
-      "headline": "${title}",
+      "headline": "${title.split('|')[0].trim()}",
       "alternativeHeadline": "${description}",
       "image": "${host}/${imgSrc}",
       "dateCreated": "${created}",
