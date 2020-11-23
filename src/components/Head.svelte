@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte'
   import { srcName } from '../helpers.js'
   import { host } from '../../site.config.js'
   export let title
@@ -10,6 +11,31 @@
   export let created = ''
   export let ttr = undefined
   $: imgSrc = srcName(img, '800')
+
+  onMount(() => {
+    if (!isArticle) return
+    const jsonLd = `{
+      "@context": "https://schema.org/",
+      "@type": "BlogPosting",
+      "headline": "${title}",
+      "alternativeHeadline": "${description}",
+      "image": "${host}/${imgSrc}",
+      "dateCreated": "${created}",
+      "datePublished": "${created}",
+      "isFamilyFriendly": "true",
+      "author": {
+        "@type": "Person",
+        "name": "Pablo Berganza",
+        "url": "https://pablo.berganza.dev"
+      }
+    }`
+
+    const jsonScript = document.createElement('script')
+    jsonScript.type = 'application/ld+json'
+    const schema = document.createTextNode(jsonLd)
+    jsonScript.appendChild(schema)
+    document.head.appendChild(jsonScript)
+  })
 </script>
 
 <svelte:head>
@@ -51,18 +77,4 @@
     <meta name="twitter:data2" value="Pablo Berganza" />
   {/if}
   <title>{title}</title>
-  {#if isArticle}
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org/",
-        "@type": "BlogPosting",
-        "isFamilyFriendly": "true",
-        "author": {
-          "@type": "Person",
-          "name": "Pablo Berganza",
-          "url": "https://pablo.berganza.dev"
-        }
-      }
-    </script>
-  {/if}
 </svelte:head>
