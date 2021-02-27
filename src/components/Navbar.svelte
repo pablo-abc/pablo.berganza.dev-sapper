@@ -37,21 +37,25 @@
     },
   }
   $: navItems = [blogNav, contactNav].filter(ni => ni.show)
+  $: segment = isBlog ? 'blog' : isContact ? 'contact' : ''
 </script>
 
 <nav>
-  <div class=left-nav>
-    <a id=logo href="./{langPath}">
-      <span>Pablo</span>
-      <span>Berganza</span>
-    </a>
-    <div class=nav-items>
-      {#each navItems as navItem (navItem.key)}
+  <ul class=left-nav>
+    <li class=skip-nav>
+      <a href="{langPath}{segment}#main-content">Skip to content</a>
+    </li>
+    <li>
+      <a id=logo href="./{langPath}">
+        <span>Pablo</span>
+        <span>Berganza</span>
+      </a>
+    </li>
+    {#each navItems as navItem (navItem.key)}
+      <li animate:flip={{ duration: 200 }} class=nav-item>
         <a
           {...navItem.attributes}
           href={navItem.href}
-          class=nav-item
-          animate:flip={{ duration: 200 }}
           >
           <span
             in:receive={{ key: navItem.key, delay: 400 }}
@@ -60,100 +64,139 @@
             {navItem.text}
           </span>
         </a>
-      {/each}
-    </div>
-  </div>
-  <div class=right-nav>
-    <a rel=prefetch href={otherLangPath} on:click={changeLang}>
-      {#if lang === 'en'}
-        es
-      {:else}
-        en
-      {/if}
-    </a>
-    <IconLink href="https://github.com/pablo-abc" title="GitHub">
-      <Icon icon={faGithub} />
-    </IconLink>
-    <IconLink href="https://www.instagram.com/berganzapablo/" title="Instagram">
-      <Icon icon={faInstagram} />
-    </IconLink>
-    <IconLink href="https://www.linkedin.com/in/PabloABC" title="LinkedIn">
-      <Icon icon={faLinkedin} />
-    </IconLink>
-    <IconLink href="https://twitter.com/Pablo_ABC" title="Twitter">
-      <Icon icon={faTwitter} />
-    </IconLink>
-  </div>
+      </li>
+    {/each}
+  </ul>
+  <ul class=right-nav>
+    <li>
+      <a rel=prefetch href={otherLangPath} on:click={changeLang}>
+        {#if lang === 'en'}
+          <span>es</span>
+        {:else}
+          <span>en</span>
+        {/if}
+      </a>
+    </li>
+    <li>
+      <IconLink href="https://github.com/pablo-abc" title="GitHub">
+        <Icon icon={faGithub} />
+      </IconLink>
+    </li>
+    <li>
+      <IconLink href="https://www.instagram.com/berganzapablo/" title="Instagram">
+        <Icon icon={faInstagram} />
+      </IconLink>
+    </li>
+    <li>
+      <IconLink href="https://www.linkedin.com/in/PabloABC" title="LinkedIn">
+        <Icon icon={faLinkedin} />
+      </IconLink>
+    </li>
+    <li>
+      <IconLink href="https://twitter.com/Pablo_ABC" title="Twitter">
+        <Icon icon={faTwitter} />
+      </IconLink>
+    </li>
+  </ul>
 </nav>
 
 <style>
-  nav div {
-      display: inline;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
   }
 
   .nav-item {
-      position: relative;
-      top: 0px;
-      display: inline-block;
+    position: relative;
+    top: 0px;
+    display: inline-block;
   }
 
   .left-nav {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   @media only screen and (min-width: 540px) {
-      .left-nav {
-          flex-direction: row;
-          align-items: center;
-      }
+    .left-nav {
+      flex-direction: row;
+      align-items: center;
+    }
   }
 
   .right-nav {
-      display: flex;
-      align-items: center;
+    display: flex;
+    align-items: center;
   }
 
   .right-nav :global(a) {
-      margin: 5px;
+    margin: 5px;
   }
 
   #logo {
-      text-decoration: none;
-      transition: color 0.1s;
-      color: var(--color-primary-0);
-      font-weight: bold;
-      font-size: 1.5em;
-      display: flex;
-      flex-direction: column;
+    text-decoration: none;
+    transition: color 0.1s;
+    color: var(--color-primary-0);
+    font-weight: bold;
+    font-size: 1.5em;
+    display: flex;
+    flex-direction: column;
   }
 
   #logo:hover {
-      color: var(--color-primary-1);
+    color: var(--color-primary-1);
   }
 
   #logo span {
-      margin-right: 8px;
+    margin-right: 8px;
   }
 
   @media only screen and (min-width: 362px) {
-      #logo {
-          flex-direction: row;
-      }
+    #logo {
+      flex-direction: row;
+    }
   }
 
   nav {
-      max-width: 960px;
-      padding: 0 20px;
-      margin: 8px auto;
-      display: flex;
-      align-items: center;
-      line-height: 1.3;
-      justify-content: space-between;
+    max-width: 960px;
+    padding: 0 20px;
+    margin: 8px auto;
+    display: flex;
+    align-items: center;
+    line-height: 1.3;
+    justify-content: space-between;
   }
 
   .nav-item:not(:last-child) {
-      margin-right: 10px;
+    margin-right: 10px;
+  }
+
+  .skip-nav {
+    position: absolute;
+    top: 0;
+  }
+
+  .skip-nav a {
+    display: inline-block;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+    background: var(--color-primary-0);
+    border-radius: 0 0 8px 8px;
+    transform: translateY(0px);
+    transition: transform 0.1s;
+  }
+
+  .skip-nav a:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    transform: translateY(-100px);
   }
 </style>

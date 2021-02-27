@@ -15,8 +15,8 @@ renderer.code = (source, lang) => {
 renderer.link = (href, title, text) => {
   const isExternal = /^https?/.test(href)
   const attributes = isExternal
-        ? 'target="_blank" rel="noopener noreferrer"'
-        : ''
+    ? 'target="_blank" rel="noopener noreferrer"'
+    : ''
   return `<a
             href="${href}"
             ${attributes}
@@ -56,8 +56,4 @@ function srcName(src, extName) {
   return path.join(dir, `${name}-${extName}${ext}`)
 }
 
-export {
-  renderer,
-  lazy,
-  srcName,
-}
+export { renderer, lazy, srcName }

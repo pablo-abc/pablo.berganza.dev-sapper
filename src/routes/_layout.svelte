@@ -19,7 +19,7 @@
   <Navbar />
 </header>
 
-<main>
+<main id=main-content>
   <slot></slot>
 </main>
 
