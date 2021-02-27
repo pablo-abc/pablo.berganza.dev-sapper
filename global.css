@@ -29,10 +29,6 @@
     --base-font-color: #523E49;
 }
 
-a {
-    text-decoration: none;
-}
-
 .main {
     position: absolute;
     width: 100%;
@@ -107,4 +103,8 @@ a {
 a:hover {
     text-decoration: none;
     color: var(--color-secondary-2-2);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-secondary-2-4);
 }
