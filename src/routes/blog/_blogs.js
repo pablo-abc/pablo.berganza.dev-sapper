@@ -10,7 +10,10 @@ export default function getBlogs(lang = 'en') {
   const fileNames = glob.sync(
     path.resolve(`./src/markdown/blog/**/*.${lang}.md`),
   )
-  const svxFileNames = glob.sync(path.resolve('./src/routes/blog/**/*.svx'))
+  const svxFileNames =
+    lang === 'en'
+      ? glob.sync(path.resolve('./src/routes/blog/**/*.svx'))
+      : glob.sync(path.resolve(`./src/routes/${lang}/blog/**/*.svx`))
 
   let mds = fileNames.map((fileName) => ({
     ...fm(fs.readFileSync(fileName).toString()),

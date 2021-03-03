@@ -51,21 +51,25 @@
         <span>Berganza</span>
       </a>
     </li>
-    {#each navItems as navItem (navItem.key)}
-      <li animate:flip={{ duration: 200 }} class=nav-item>
-        <a
-          {...navItem.attributes}
-          href={navItem.href}
-          >
-          <span
-            in:receive={{ key: navItem.key, delay: 400 }}
-            out:send={{ key: navItem.key }}
-            >
-            {navItem.text}
-          </span>
-        </a>
-      </li>
-    {/each}
+    <li>
+      <ul>
+        {#each navItems as navItem (navItem.key)}
+          <li animate:flip={{ duration: 200 }} class=nav-item>
+            <a
+              {...navItem.attributes}
+              href={navItem.href}
+              >
+              <span
+                in:receive={{ key: navItem.key, delay: 400 }}
+                out:send={{ key: navItem.key }}
+                >
+                {navItem.text}
+              </span>
+            </a>
+          </li>
+        {/each}
+      </ul>
+    </li>
   </ul>
   <ul class=right-nav>
     <li>
@@ -116,14 +120,8 @@
   .left-nav {
     flex: 1;
     display: flex;
-    flex-direction: column;
-  }
-
-  @media only screen and (min-width: 540px) {
-    .left-nav {
-      flex-direction: row;
-      align-items: center;
-    }
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   .right-nav {

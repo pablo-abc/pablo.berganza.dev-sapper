@@ -8,6 +8,22 @@ import config from 'sapper/config/rollup.js'
 import pkg from './package.json'
 import sveltePreprocessPostcss from 'svelte-preprocess-postcss'
 import { mdsvex } from 'mdsvex'
+import hljs from 'highlight.js'
+import hljsDefineGraphQL from 'highlightjs-graphql'
+
+hljsDefineGraphQL(hljs)
+
+function highlighter(code, lang) {
+  const highlighted = hljs.highlight(lang, code)
+  const value = highlighted.value
+  return (
+    '{@html `<pre class="hljs ' +
+    lang +
+    '"><code class="hljs">' +
+    value +
+    '</code></pre>`}'
+  )
+}
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -40,14 +56,15 @@ export default {
         emitCss: true,
         extensions: ['.svelte', '.svx'],
         preprocess: [
-          {
-            style: stylePreprocessor,
-          },
           mdsvex({
+            highlight: { highlighter },
             layout: {
               blog: './src/components/blogs/BlogLayout.svelte',
             },
           }),
+          {
+            style: stylePreprocessor,
+          },
         ],
       }),
       resolve({
@@ -105,14 +122,15 @@ export default {
         extensions: ['.svelte', '.svx'],
         hydratable: true,
         preprocess: [
-          {
-            style: stylePreprocessor,
-          },
           mdsvex({
+            highlight: { highlighter },
             layout: {
               blog: './src/components/blogs/BlogLayout.svelte',
             },
           }),
+          {
+            style: stylePreprocessor,
+          },
         ],
       }),
       resolve({
