@@ -7,9 +7,9 @@ hljsDefineGraphQL(hljs)
 
 const renderer = new marked.Renderer()
 
-renderer.code = (source, lang) => {
-  const { value } = hljs.highlight(lang, source)
-  return `<pre class="${lang} hljs"><code>${value}</code></pre>`
+renderer.code = (source, language) => {
+  const { value } = hljs.highlight(source, { language })
+  return `<pre class="${language} hljs"><code>${value}</code></pre>`
 }
 
 renderer.link = (href, title, text) => {

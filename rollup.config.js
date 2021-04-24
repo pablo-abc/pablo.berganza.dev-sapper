@@ -13,12 +13,12 @@ import hljsDefineGraphQL from 'highlightjs-graphql'
 
 hljsDefineGraphQL(hljs)
 
-function highlighter(code, lang) {
-  const highlighted = hljs.highlight(lang, code)
+function highlighter(code, language) {
+  const highlighted = hljs.highlight(code, { language })
   const value = highlighted.value
   return (
     '{@html `<pre class="hljs ' +
-    lang +
+    language +
     '"><code class="hljs">' +
     value +
     '</code></pre>`}'
@@ -47,6 +47,7 @@ export default {
     output: config.client.output(),
     plugins: [
       replace({
+        preventAssignment: true,
         'process.browser': true,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
@@ -113,6 +114,7 @@ export default {
     output: config.server.output(),
     plugins: [
       replace({
+        preventAssignment: true,
         'process.browser': false,
         'process.env.NODE_ENV': JSON.stringify(mode),
       }),
